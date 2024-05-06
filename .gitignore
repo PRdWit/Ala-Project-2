@@ -1,0 +1,9 @@
+*.pyc
+*.pyo
+*.env
+*.log
+db.sqlite3
+env/
+venv/
+*.css
+HOBO/HOBO/settings.py
