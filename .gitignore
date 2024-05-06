@@ -7,6 +7,3 @@ env/
 venv/
 *.css
 HOBO/HOBO/settings.py
-*.pyc
-HOBO/HOBO/settings.py
-HOBO/HOBO/settings.py
