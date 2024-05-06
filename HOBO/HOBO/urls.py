@@ -20,5 +20,6 @@ from HoboBrain import views
 
 urlpatterns = [
     path('', views.homepage, name="homepage"),
-    path('admin/', admin.site.urls)
+    path('admin/', admin.site.urls),
+    path('profile/', views.profile, name="profile")
 ]
