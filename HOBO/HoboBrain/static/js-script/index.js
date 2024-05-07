@@ -1,22 +1,26 @@
-const itemWidth = 210;
+const itemWidth = 250;
 let currentIndex = 0;
 
 function scrollCarousel(direction) {
   const carouselInner = document.getElementById("carousel-inner");
-  const totalItems = carouselInner.children.length;
-
-  const visibleItems = 3;
-
-  const maxScroll = (totalItems - visibleItems) * itemWidth;
-
+  const totalItems = carouselInner.children.length; // Total number of carousel items
+  
+  const visibleItems = 4;
+  
+  const maxIndex = totalItems - visibleItems; // Maximum index where scrolling stops
   currentIndex += direction;
 
+  // Ensure the currentIndex stays within the valid range
   if (currentIndex < 0) {
     currentIndex = 0;
-  } else if (currentIndex * itemWidth > maxScroll) {
-    currentIndex = Math.floor(maxScroll / itemWidth);
+  } else if (currentIndex > maxIndex) {
+    currentIndex = maxIndex; // Prevent overscrolling beyond the last item
   }
 
-  carouselInner.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+  const translateX = -currentIndex * itemWidth; // Calculate translation
+  carouselInner.style.transform = `translateX(${translateX}px)`;
 }
+
+
+
 
