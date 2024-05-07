@@ -5,7 +5,7 @@ let width = item.width;
 let itemWidth = width+margin;
 
 
-let screenSize = window.innerWidth;
+let screenSize = window.innerWidth - 25;
 let maxItems = screenSize / (itemWidth);
 
 const carouselInner = document.getElementById("carousel-inner");
