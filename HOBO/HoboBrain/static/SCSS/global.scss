@@ -63,6 +63,10 @@ body {
                 text-decoration: none;
                 color: $white;
 
+                &:hover {
+                    color: $blue;
+                }
+
                 p {
                     font-size: 20px;
                     margin: 0;
