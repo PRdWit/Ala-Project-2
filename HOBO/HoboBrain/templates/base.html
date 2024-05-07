@@ -17,14 +17,18 @@
     <link rel="icon" type="image/x-icon" href="{% static "Pics/HOBO_Beeldmerk.png" %}">
 </head>
 <body>
-    <header>
-        <img src="" alt="Logo">
+    <header> 
         <nav>
-            <a href="#">Home</a>
-            <a href="#">content</a>
-            <a href="#">History</a>
+            <img src="{% static "Pics/HOBO_logo.png" %}" alt="Logo" id="logo">
+            <a href="#">HOME</a>
+            <a href="#">CONTENT</a>
+            <a href="#">HISTORY</a>
         </nav>
-        <img src="" alt="Profile">
+        <section id="navR">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <p>Username</p>
+            <a><i class="fa-solid fa-user" id="profile"></i></a>
+        </section>
     </header>
     <main>
         {% block content %} {% endblock %}

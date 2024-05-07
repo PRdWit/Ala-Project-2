@@ -9,6 +9,82 @@ $white: #efefef;
 $parafont: "Montserrat", sans-serif;
 $titlefont: NeutraText;
 
-a {
-    font-family: $titlefont;
+body {
+    background-color: $dark;
+    color: $white;
+    font-family: $parafont;
+    margin: 0;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    header {
+        display: flex;
+        width: auto;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            
+            #logo {
+                width: 150px;
+            }
+
+            a {
+                color: $white;
+                text-decoration: none;
+                font-family: $parafont;
+                font-size: 20px;
+
+                &:hover {
+                    color: $blue;
+                }
+            }
+        }
+
+        #navR {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            i {
+                font-size: 36px;
+            }
+
+            p {
+                font-size: 20px;
+                margin: 0;
+            }
+        }
+    }
+
+    main {
+        flex-grow: 1;
+
+        h1, h2, h3 {
+            color: $lime;
+            font-family: $titlefont;
+        }
+
+        h3 {
+            font-size: 36px;
+        }
+    }
+
+    footer {
+        background-color: $lime;
+        width: auto;
+        color: $dark;
+        padding: 10px;
+
+        p {
+            margin: 0;
+            font-size: 20px;
+        }
+    }
 }
