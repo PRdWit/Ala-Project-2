@@ -21,12 +21,14 @@
     <header> 
         <nav>
             <img src="{% static "Pics/HOBO_logo.png" %}" alt="Logo" id="logo">
-            <a href="#">HOME</a>
+            <a href="{% url 'homepage' %}">HOME</a>
             <a href="#">CONTENT</a>
             <a href="#">HISTORY</a>
         </nav>
         <section id="navR">
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <a href="#">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
             <a href="{% url 'profile' %}">
                 <p>Username</p>
                 <i class="fa-solid fa-user" id="profile"></i>
