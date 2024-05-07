@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        {% block title %}
-            HoBo
-        {% endblock %}
+        {% block title %} HoBo {% endblock %}
     </title>
     {% load static %}
     {% load compress %}
     {% compress css %}
         <link rel="stylesheet" href="{%static 'SCSS/global.scss' %}" type="text/x-scss">
     {% endcompress %}
+
+    {% block scss %}{% endblock %}
     <script src="https://kit.fontawesome.com/9ce9532b81.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" href="{% static "Pics/HOBO_Beeldmerk.png" %}">
 </head>
@@ -26,8 +26,10 @@
         </nav>
         <section id="navR">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <p>Username</p>
-            <a><i class="fa-solid fa-user" id="profile"></i></a>
+            <a href="{% url 'profile' %}">
+                <p>Username</p>
+                <i class="fa-solid fa-user" id="profile"></i>
+            </a>
         </section>
     </header>
     <main>

@@ -56,9 +56,17 @@ body {
                 font-size: 36px;
             }
 
-            p {
-                font-size: 20px;
-                margin: 0;
+            a {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                text-decoration: none;
+                color: $white;
+
+                p {
+                    font-size: 20px;
+                    margin: 0;
+                }
             }
         }
     }

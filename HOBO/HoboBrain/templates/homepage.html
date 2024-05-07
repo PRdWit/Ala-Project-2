@@ -1,8 +1,19 @@
-{% extends "base.html" %} {% block title %} Homepage ~ HoBo {% endblock %}
+{% extends "base.html" %} 
+
+{% block title %} Homepage ~ HoBo {% endblock %}
+
+{% block scss %}
+    {% load static %}
+    {% load compress %}
+    {% compress css %}
+            <link rel="stylesheet" href="{%static 'SCSS/homepage.scss' %}" type="text/x-scss">
+    {% endcompress %}
+{% endblock %}
+
 {% block content %}
 <section id="top-section">
-    <button>Play</button>
-    <button>More Info</button>
+    <button id="play"><i class="fa-solid fa-play"></i> Play</button>
+    <button id="info"><i class="fa-solid fa-info"></i> More Info</button>
 </section>
 <section id="bottom-section">
     <h3>Recently Watched</h3>
@@ -11,6 +22,5 @@
     <div></div>
     <h3>Editor's Pick</h3>
     <div></div>
-
 </section>
 {% endblock %}
