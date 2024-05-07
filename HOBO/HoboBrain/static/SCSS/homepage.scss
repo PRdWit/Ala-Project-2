@@ -50,7 +50,7 @@ main {
                     transition: transform 0.5s ease-in-out;
 
                     .carousel-item {
-                        min-width: 200px;
+                        min-width: 15%;
                         margin-right: 10px;
                         background-color: lightgray;
                         text-align: center;
@@ -58,7 +58,7 @@ main {
                       }
                 }
             }
-
+            
             .carousel-controls {
                 display: flex;
                 justify-content: space-between;
@@ -67,26 +67,3 @@ main {
         }
     }
 }
-
-// .carousel {
-//     overflow: hidden;
-//   }
- 
-//   .carousel-inner {
-//     display: flex;
-//     transition: transform 0.5s ease-in-out;
-//   }
- 
-//   .carousel-item {
-//     min-width: 200px;
-//     margin-right: 10px;
-//     background-color: lightgray;
-//     text-align: center;
-//     padding: 20px;
-//   }
- 
-//   .carousel-controls {
-//     display: flex;
-//     justify-content: space-between;
-//     margin-top: 10px;
-//   }
