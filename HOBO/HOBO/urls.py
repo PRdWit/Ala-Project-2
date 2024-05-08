@@ -24,5 +24,6 @@ urlpatterns = [
     path('profile/', views.profile, name="profile"),
     path('content/', views.content, name="content"),
     path('search/', views.search, name="search"),
-    path('history/', views.history, name="history")
+    path('history/', views.history, name="history"),
+    path('inloggen/', views.inloggen, name="inloggen")
 ]
