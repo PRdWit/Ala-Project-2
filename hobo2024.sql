@@ -10043,7 +10043,9 @@ CREATE TABLE `serie` (
   `SerieID` int(10) NOT NULL,
   `SerieTitel` varchar(100) DEFAULT NULL,
   `IMDBLink` varchar(100) DEFAULT NULL,
-  `Actief` int(11) DEFAULT 0
+  `Actief` int(11) DEFAULT 0,
+  `EditorPick` int(11) DEFAULT 0,
+  `Trending` int(11) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
