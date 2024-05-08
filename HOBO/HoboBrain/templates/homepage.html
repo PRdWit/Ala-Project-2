@@ -42,16 +42,9 @@
         <h3>Trending</h3>
         <div class="carousel">
             <div class="carousel-inner" id="carousel-inner2">
-              <div class="carousel-item">Slide 1</div>
-              <div class="carousel-item">Slide 2</div>
-              <div class="carousel-item">Slide 3</div>
-              <div class="carousel-item">Slide 4</div>
-              <div class="carousel-item">Slide 5</div>
-              <div class="carousel-item">Slide 6</div>
-              <div class="carousel-item">Slide 7</div>
-              <div class="carousel-item">Slide 8</div>
-              <div class="carousel-item">Slide 9</div>
-              <div class="carousel-item">Slide 10</div>
+                {% for item in series_with_images %}
+                    <img class="carousel-item" src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="Image for {{ item.serie.serietitel }}">
+                {% endfor %}
             </div>
             <div class="shadow"></div>
             <div class="carousel-controls">
@@ -64,16 +57,9 @@
         <h3>Editor's Pick</h3>
         <div class="carousel">
             <div class="carousel-inner" id="carousel-inner3">
-              <div class="carousel-item">Slide 1</div>
-              <div class="carousel-item">Slide 2</div>
-              <div class="carousel-item">Slide 3</div>
-              <div class="carousel-item">Slide 4</div>
-              <div class="carousel-item">Slide 5</div>
-              <div class="carousel-item">Slide 6</div>
-              <div class="carousel-item">Slide 7</div>
-              <div class="carousel-item">Slide 8</div>
-              <div class="carousel-item">Slide 9</div>
-              <div class="carousel-item">Slide 10</div>
+                {% for item in series_with_images %}
+                    <img class="carousel-item" src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="Image for {{ item.serie.serietitel }}">
+                {% endfor %}
             </div>
             <div class="shadow"></div>
             <div class="carousel-controls">
@@ -84,10 +70,10 @@
     </section>
     <ul>
         {% for item in series_with_images %}
-            <li>
-                SerieID: {{ item.serie.serieid }}, Title: {{ item.serie.serietitel }}
+            {% comment %} <div class="carousel-item"> {% endcomment %}
+                {% comment %} SerieID: {{ item.serie.serieid }}, Title: {{ item.serie.serietitel }} {% endcomment %}
                 <img src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="Image for {{ item.serie.serietitel }}">
-            </li>
+            {% comment %} </div class="carousel-item"> {% endcomment %}
         {% empty %}
             <li>No active series found.</li>
         {% endfor %}
