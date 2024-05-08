@@ -40,3 +40,6 @@ def search(request):
 
 def history(request):
     return render(request, "history.html")
+
+def inloggen(request):
+    return render(request, "inloggen.html")
