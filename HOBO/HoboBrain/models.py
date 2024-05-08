@@ -179,6 +179,8 @@ class Serie(models.Model):
     serietitel = models.CharField(db_column='SerieTitel', max_length=100, blank=True, null=True)  # Field name made lowercase.
     imdblink = models.CharField(db_column='IMDBLink', max_length=100, blank=True, null=True)  # Field name made lowercase.
     actief = models.IntegerField(db_column='Actief', blank=True, null=True)  # Field name made lowercase.
+    trending = models.IntegerField(db_column='Trending', blank=True, null=True)
+    editorpick = models.IntegerField(db_column='EditorPick', blank=True, null=True)
 
     class Meta:
         managed = False
