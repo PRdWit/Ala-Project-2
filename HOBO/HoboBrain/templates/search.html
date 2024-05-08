@@ -11,7 +11,15 @@
 {% endblock %}
 
 {% block content %}
-<form id="searchbar" method="get">
-    <input id="searchbar" type="text" placeholder="Search your favorite series..."></input>
+<form id="searchbar" method="GET" action="{% url 'search' %}">
+    <input type="text" name="query" placeholder="Search for a series..." value="{{ search_term }}">
 </form>
+
+<ul>
+    {% for serie in results %}
+        <li>Serie ID: {{ serie.serieid }}, Title: {{ serie.serietitel }}</li>
+    {% empty %}
+        <li>No results found.</li>
+    {% endfor %}
+</ul>
 {% endblock %}

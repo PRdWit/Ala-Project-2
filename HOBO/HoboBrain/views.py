@@ -36,7 +36,19 @@ def content(request):
     return render(request, "content.html")
 
 def search(request):
-    return render(request, "search.html")
+    search_term = request.GET.get('query', '')
+
+    if search_term:
+        results = Serie.objects.filter(serietitel__icontains=search_term)
+    else:
+        results = Serie.objects.all()
+
+    context = {
+        'search_term': search_term,
+        'results': results,
+    }
+
+    return render(request, "search.html", context)
 
 def history(request):
     return render(request, "history.html")
