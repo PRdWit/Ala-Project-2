@@ -83,11 +83,13 @@
         </div>
     </section>
     <ul>
-        <!-- Iterate over the 'active_series' passed from the view -->
-        {% for serie in active_series %}
-            <li>SerieID: {{ serie.serieid }}, Name: {{ serie.serietitel }}, IMDB: {{serie.imdblink}}</li>
+        {% for item in series_with_images %}
+            <li>
+                SerieID: {{ item.serie.serieid }}, Title: {{ item.serie.serietitel }}
+                <img src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="Image for {{ item.serie.serietitel }}">
+            </li>
         {% empty %}
-            <li>No active series found.</li>  <!-- Message to show if there's no active series -->
+            <li>No active series found.</li>
         {% endfor %}
     </ul>
 </section>
