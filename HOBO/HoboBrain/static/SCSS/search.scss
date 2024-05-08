@@ -1,0 +1,25 @@
+$lime: #92d051;
+$blue: #5b9bd5;
+$dark: #444444;
+$white: #efefef;
+
+$parafont: "Montserrat", sans-serif;
+$titlefont: NeutraText;
+
+main {
+    #searchbar {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+
+        input {
+            width: 90%;
+            border: none;
+            padding: 10px;
+            font-family: $parafont;
+            font-size: 18px;
+            color: $dark;
+            background-color: $white;
+        }
+    }
+}

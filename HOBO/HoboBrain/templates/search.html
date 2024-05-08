@@ -2,12 +2,16 @@
 
 {% block title %} Search ~ HoBo {% endblock %}
 
-{% comment %} {% block scss %}
+{% block scss %}
     {% load static %}
     {% load compress %}
     {% compress css %}
-            <link rel="stylesheet" href="{%static 'SCSS/homepage.scss' %}" type="text/x-scss">
+            <link rel="stylesheet" href="{%static 'SCSS/search.scss' %}" type="text/x-scss">
     {% endcompress %}
-{% endblock %} {% endcomment %}
+{% endblock %}
 
-{% block content %}{% endblock %}
+{% block content %}
+<form id="searchbar" method="get">
+    <input id="searchbar" type="text" placeholder="Search your favorite series..."></input>
+</form>
+{% endblock %}
