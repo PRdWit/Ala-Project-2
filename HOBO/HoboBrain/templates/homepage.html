@@ -82,5 +82,15 @@
             </div>
         </div>
     </section>
+    <ul>
+        {% for item in series_with_images %}
+            <li>
+                SerieID: {{ item.serie.serieid }}, Title: {{ item.serie.serietitel }}
+                <img src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="Image for {{ item.serie.serietitel }}">
+            </li>
+        {% empty %}
+            <li>No active series found.</li>
+        {% endfor %}
+    </ul>
 </section>
 {% endblock %}
