@@ -82,5 +82,13 @@
             </div>
         </div>
     </section>
+    <ul>
+        <!-- Iterate over the 'active_series' passed from the view -->
+        {% for serie in active_series %}
+            <li>SerieID: {{ serie.serieid }}, Name: {{ serie.serietitel }}, IMDB: {{serie.imdblink}}</li>
+        {% empty %}
+            <li>No active series found.</li>  <!-- Message to show if there's no active series -->
+        {% endfor %}
+    </ul>
 </section>
 {% endblock %}
