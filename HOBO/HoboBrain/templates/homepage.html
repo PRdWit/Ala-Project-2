@@ -42,7 +42,7 @@
         <h3>Trending</h3>
         <div class="carousel">
             <div class="carousel-inner" id="carousel-inner2">
-                {% for item in series_with_images %}
+                {% for item in trending_series_with_images %}
                     <img class="carousel-item" src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="Image for {{ item.serie.serietitel }}">
                 {% endfor %}
             </div>
@@ -57,7 +57,7 @@
         <h3>Editor's Pick</h3>
         <div class="carousel">
             <div class="carousel-inner" id="carousel-inner3">
-                {% for item in series_with_images %}
+                {% for item in editor_series_with_images %}
                     <img class="carousel-item" src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="Image for {{ item.serie.serietitel }}">
                 {% endfor %}
             </div>
@@ -68,15 +68,5 @@
             </div>
         </div>
     </section>
-    <ul>
-        {% for item in series_with_images %}
-            {% comment %} <div class="carousel-item"> {% endcomment %}
-                {% comment %} SerieID: {{ item.serie.serieid }}, Title: {{ item.serie.serietitel }} {% endcomment %}
-                <img src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="Image for {{ item.serie.serietitel }}">
-            {% comment %} </div class="carousel-item"> {% endcomment %}
-        {% empty %}
-            <li>No active series found.</li>
-        {% endfor %}
-    </ul>
 </section>
 {% endblock %}
