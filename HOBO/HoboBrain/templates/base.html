@@ -22,11 +22,11 @@
         <nav>
             <img src="{% static "Pics/HOBO_logo.png" %}" alt="Logo" id="logo">
             <a href="{% url 'homepage' %}">HOME</a>
-            <a href="#">CONTENT</a>
-            <a href="#">HISTORY</a>
+            <a href="{% url 'content' %}">CONTENT</a>
+            <a href="{% url 'history' %}">HISTORY</a>
         </nav>
         <section id="navR">
-            <a href="#">
+            <a href="{% url 'search' %}">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </a>
             <a href="{% url 'profile' %}">
@@ -34,7 +34,6 @@
                 <i class="fa-solid fa-user" id="profile"></i>
             </a>
         </section>
-        <img src="Pics/images{% fjeflesj %}.jpg">
     </header>
     <main>
         {% block content %} {% endblock %}
