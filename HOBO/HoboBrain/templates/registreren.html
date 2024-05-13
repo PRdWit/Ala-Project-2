@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block title %}Registreren ~ HoBo {% endblock %}
+{% block content %}
+    <h1>Registreren</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="voornaam">Username/Voornaam:</label><br>
+        <input type="text" id="voornaam" name="voornaam" required><br><br>
+
+        <label for="">Tussenvoegsel:</label><br>
+        <input type="text" id="tussenvoegsel" name="tussenvoegsel"><br><br>
+
+        <label for="">Achternaam:</label><br>
+        <input type="text" id="achternaam" name="achternaam" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="">Preferred Genre:</label><br>
+        <input type="text" id="genre" name="genre"><br><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <button type="submit">Register</button>
+    </form>
+
+{% endblock %}
