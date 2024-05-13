@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from HoboBrain.models import Serie, Klant
+from django.db.models import Q
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
 from HoboBrain.forms import RegistrationForm
