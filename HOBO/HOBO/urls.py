@@ -25,5 +25,6 @@ urlpatterns = [
     path('content/', views.content, name="content"),
     path('search/', views.search, name="search"),
     path('history/', views.history, name="history"),
-    path('inloggen/', views.inloggen, name="inloggen")
+    path('inloggen/', views.inloggen, name="inloggen"),
+    path('<int:SerieID>/', views.serie_detail, name='serie_detail')
 ]

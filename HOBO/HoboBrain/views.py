@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from HoboBrain.models import Serie
 from django.db.models import Q
 
@@ -61,3 +61,7 @@ def history(request):
 
 def inloggen(request):
     return render(request, "inloggen.html")
+
+def serie_detail(request, SerieID):
+    serie = get_object_or_404(Serie, pk=SerieID)
+    return render(request, 'streampage.html', {'serie': serie})
