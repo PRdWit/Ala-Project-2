@@ -1,5 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import login, authenticate
 from HoboBrain.models import Serie
+from django.urls import reverse_lazy
+from django.contrib.auth.views import LoginView, LogoutView
+from HoboBrain.forms import RegistrationForm
 
 def homepage(request):
     active_series = Serie.objects.filter(actief=True)
@@ -43,3 +47,22 @@ def history(request):
 
 def inloggen(request):
     return render(request, "inloggen.html")
+
+def registreren(request): 
+    if request.method == "POST":
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)  # Log the user in after registration
+            return redirect("/")  # Redirect to the homepage after registration
+    else:
+        form = RegistrationForm()
+
+    return render(request, "registreren.html", {"form": form})
+
+class CustomLoginView(LoginView):
+    template_name = "inloggen.html"
+
+# Logout view
+class CustomLogoutView(LogoutView):
+    next_page = reverse_lazy("login")
