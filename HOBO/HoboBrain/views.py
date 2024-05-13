@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
+from django.shortcuts import render, get_object_or_404, redirect
 from HoboBrain.models import Serie, Klant
 from django.db.models import Q
 from django.urls import reverse_lazy
@@ -100,3 +100,7 @@ class CustomLoginView(LoginView):
 # Logout view
 class CustomLogoutView(LogoutView):
     next_page = reverse_lazy("login")
+
+def serie_detail(request, SerieID):
+    serie = get_object_or_404(Serie, pk=SerieID)
+    return render(request, 'streampage.html', {'serie': serie})

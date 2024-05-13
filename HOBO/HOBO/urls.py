@@ -28,4 +28,5 @@ urlpatterns = [
     path('history/', views.history, name="history"),
     path('inloggen/', CustomLoginView.as_view(), name="inloggen"),
     path('registreren/', registreren, name="registreren")
+    path('<int:SerieID>/', views.serie_detail, name='serie_detail')
 ]

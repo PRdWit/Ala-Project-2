@@ -43,7 +43,7 @@
         <div class="carousel">
             <div class="carousel-inner" id="carousel-inner2">
                 {% for item in trending_series_with_images %}
-                    <img class="carousel-item" src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="Image for {{ item.serie.serietitel }}">
+                    <a href="{% url 'serie_detail' item.serie.serieid %}"><img class="carousel-item" src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="Image for {{ item.serie.serietitel }}"></a>
                 {% endfor %}
             </div>
             <div class="shadow"></div>
@@ -58,7 +58,7 @@
         <div class="carousel">
             <div class="carousel-inner" id="carousel-inner3">
                 {% for item in editor_series_with_images %}
-                    <img class="carousel-item" src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="Image for {{ item.serie.serietitel }}">
+                <a href="{% url 'serie_detail' item.serie.serieid %}"><img class="carousel-item" src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="Image for {{ item.serie.serietitel }}"></a>
                 {% endfor %}
             </div>
             <div class="shadow"></div>
