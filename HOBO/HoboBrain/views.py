@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from HoboBrain.models import Serie
+from django.db.models import Q
 
 def homepage(request):
     active_series = Serie.objects.filter(actief=True)
@@ -38,17 +39,22 @@ def content(request):
 def search(request):
     search_term = request.GET.get('query', '')
 
+    all_series = Serie.objects.filter(actief=True)
+    all_series_with_images = [{'serie': serie, 'image_name': f'{str(serie.serieid).zfill(5)}.jpg'} for serie in all_series]
+
     if search_term:
-        results = Serie.objects.filter(serietitel__icontains=search_term)
+        results = Serie.objects.filter(Q(serietitel__icontains=search_term) & Q(actief=True))
+        results_with_images = [{'serie': serie, 'image_name': f'{str(serie.serieid).zfill(5)}.jpg'} for serie in results]
     else:
-        results = Serie.objects.all()
+        results_with_images = all_series_with_images
 
     context = {
         'search_term': search_term,
-        'results': results,
+        'results_with_images': results_with_images,
     }
 
     return render(request, "search.html", context)
+
 
 def history(request):
     return render(request, "history.html")

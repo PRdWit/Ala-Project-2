@@ -16,10 +16,12 @@
 </form>
 
 <ul>
-    {% for serie in results %}
-        <li>Serie ID: {{ serie.serieid }}, Title: {{ serie.serietitel }}</li>
+    {% for item in results_with_images %}
+        <p>
+            <img  src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="{{ item.serie.serietitel }}">
+        </p>
     {% empty %}
-        <li>No results found.</li>
+        <p>No results found.</p>
     {% endfor %}
 </ul>
 {% endblock %}
