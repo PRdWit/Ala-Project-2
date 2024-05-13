@@ -53,10 +53,14 @@ main {
                     transition: transform 0.5s ease-in-out;
                     padding: 0 10px;
 
-                    .carousel-item {
-                        width: 10vw;
-                        margin-right: 10px;
-                        text-align: center;
+                    a {
+                        pointer-events: auto !important;
+                        
+                        .carousel-item {
+                            width: 10vw;
+                            margin-right: 10px;
+                            text-align: center;
+                        }
                     }
                 }
 
