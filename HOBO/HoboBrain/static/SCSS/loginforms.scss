@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap');
+@font-face {font-family: NeutraText; src: url(../fonts/NeutraText-BoldAlt.otf)}
+
+$lime: #92d051;
+$blue: #5b9bd5;
+$dark: #444444;
+$white: #efefef;
+
+$parafont: "Montserrat", sans-serif;
+$titlefont: NeutraText;
+
+main {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    form {
+        button {
+            background-color: $lime;
+            color: $white;
+            border: none;
+            font-size: 18px;
+            padding: 5px 10px;
+
+            &:hover {
+                background-color: #82b64b;
+                cursor: pointer;
+            }
+        }
+    }
+
+    p {
+        a {
+            text-decoration: none;
+            color: $white;
+            font-family: $parafont;
+            font-weight: bold;
+        }
+    }
+}
