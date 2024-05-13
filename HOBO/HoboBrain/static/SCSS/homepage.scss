@@ -54,12 +54,14 @@ main {
                     padding: 0 10px;
 
                     a {
+                        width: 10vw;
+                        margin-right: 10px;
                         pointer-events: auto !important;
                         
                         .carousel-item {
                             width: 10vw;
-                            margin-right: 10px;
-                            text-align: center;
+                            // margin-right: 10px;
+                            // text-align: center;
                         }
                     }
                 }
@@ -83,6 +85,7 @@ main {
                     height: 100%;
                     z-index: 5;
                     position: absolute;
+                    pointer-events: none;
 
                     box-shadow: 50px 0 30px -20px #444444 inset,  /* inner left shadow */
                     -50px 0 30px -30px #444444 inset;

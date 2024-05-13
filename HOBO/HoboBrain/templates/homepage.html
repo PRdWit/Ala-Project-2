@@ -46,7 +46,7 @@
                     <a href="{% url 'serie_detail' item.serie.serieid %}"><img class="carousel-item" src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="Image for {{ item.serie.serietitel }}"></a>
                 {% endfor %}
             </div>
-            {% comment %} <div class="shadow"></div> {% endcomment %}
+            <div class="shadow"></div>
             <div class="carousel-controls">
                 <a onclick="carouselTrending(-1)"><i class="fa-solid fa-angle-left"></i></a>
                 <a onclick="carouselTrending(1)"><i class="fa-solid fa-angle-right"></i></a>
@@ -61,7 +61,7 @@
                 <a href="{% url 'serie_detail' item.serie.serieid %}"><img class="carousel-item" src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="Image for {{ item.serie.serietitel }}"></a>
                 {% endfor %}
             </div>
-            {% comment %} <div class="shadow"></div> {% endcomment %}
+            <div class="shadow"></div>
             <div class="carousel-controls">
                 <a onclick="carouselEditor(-1)"><i class="fa-solid fa-angle-left"></i></a>
                 <a onclick="carouselEditor(1)"><i class="fa-solid fa-angle-right"></i></a>
