@@ -10,6 +10,8 @@
     {% endcompress %}
 {% endblock %}
 
+{% comment %} <script src="{% static 'js-script/index.js' %}" defer></script> {% endcomment %}
+
 {% block content %}
 <section id="top-section">
     <button id="play"><i class="fa-solid fa-play"></i> Play</button>
@@ -48,8 +50,8 @@
             </div>
             <div class="shadow"></div>
             <div class="carousel-controls">
-                <a onclick="carouselTrending(-1)"><i class="fa-solid fa-angle-left"></i></a>
-                <a onclick="carouselTrending(1)"><i class="fa-solid fa-angle-right"></i></a>
+                <a onclick="carouselTrending(-3)"><i class="fa-solid fa-angle-left"></i></a>
+                <a onclick="carouselTrending(3)"><i class="fa-solid fa-angle-right"></i></a>
             </div>
         </div>
     </section>
@@ -63,8 +65,8 @@
             </div>
             <div class="shadow"></div>
             <div class="carousel-controls">
-                <a onclick="carouselEditor(-1)"><i class="fa-solid fa-angle-left"></i></a>
-                <a onclick="carouselEditor(1)"><i class="fa-solid fa-angle-right"></i></a>
+                <a onclick="carouselEditor(-3)"><i class="fa-solid fa-angle-left"></i></a>
+                <a onclick="carouselEditor(3)"><i class="fa-solid fa-angle-right"></i></a>
             </div>
         </div>
     </section>
