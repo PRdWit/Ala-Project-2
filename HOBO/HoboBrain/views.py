@@ -87,8 +87,8 @@ def registreren(request):
                 password=password,
             )
 
-            login(request, user)  # Log the user in after registration
-            return redirect("/")  # Redirect to the homepage after registration
+            login(request, user)
+            return redirect("/")
     else:
         form = RegistrationForm()
 
