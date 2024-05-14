@@ -29,10 +29,17 @@
             <a href="{% url 'search' %}">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </a>
-            <a href="{% url 'inloggen' %}">
-                <p>Inloggen</p>
-                <i class="fa-solid fa-user" id="profile"></i>
-            </a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'profile' %}">
+                    <p>Profile</p>
+                    <i class="fa-solid fa-user" id="profile"></i>
+                </a>
+            {% else %} 
+                <a href="{% url 'inloggen' %}">
+                    <p>Inloggen</p>
+                    <i class="fa-solid fa-user" id="profile"></i>
+                </a>
+            {% endif %}
         </section>
     </header>
     <main>
