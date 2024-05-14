@@ -2,11 +2,12 @@
 
 <!-- Registreren Styling -->
 <!-- Login Styling -->
-Zoeken Styling
+<!-- Zoeken Styling -->
 <!-- Content knop linken aan Zoeken -->
 Login custom form
-Inlog knop linken (afhankelijk van inlogstatus)
+<!-- Inlog knop linken (afhankelijk van inlogstatus) -->
 ingelogd checks
 invullen serie details
 styling serie details
 laatst gekeken series
+dropdown voor aboID soort (register)
