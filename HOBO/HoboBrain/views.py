@@ -2,9 +2,11 @@ from django.contrib.auth import login, authenticate
 from django.shortcuts import render, get_object_or_404, redirect
 from HoboBrain.models import Serie, Klant
 from django.db.models import Q
+from django.db import connection
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView, LogoutView
 from HoboBrain.forms import RegistrationForm
+import hashlib
 
 
 def homepage(request):
@@ -69,26 +71,24 @@ def inloggen(request):
 
 def registreren(request): 
     if request.method == "POST":
-        form = RegistrationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
+        voornaam = request.POST.get('voornaam')
+        aboID = request.POST.get('aboID')
+        tussenvoegsel = request.POST.get('tussenvoegsel')
+        achternaam = request.POST.get('achternaam')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        genre = request.POST.get('genre')
 
-            voornaam = form.cleaned_data.get('voornaam')
-            tussenvoegsel = form.cleaned_data.get('tussenvoegsel')
-            achternaam = form.cleaned_data.get('achternaam')
-            email = form.cleaned_data.get('email')
-            password = form.cleaned_data.get('password')
+        hashed_password = hashlib.sha256(password.encode()).hexdigest()
 
-            klant = Klant.objects.create(
-                voornaam=voornaam,
-                tussenvoegsel=tussenvoegsel,
-                achternaam=achternaam,
-                email=email,
-                password=password,
+        with connection.cursor() as cursor:
+            cursor.execute(
+                "INSERT INTO klant (aboID, voornaam, tussenvoegsel, achternaam, email, password, genre) "
+                "VALUES (%s, %s, %s, %s, %s, %s, %s)",
+                [aboID ,voornaam, tussenvoegsel, achternaam, email, hashed_password, genre]
             )
 
-            login(request, user)
-            return redirect("/")
+        return redirect("inloggen")
     else:
         form = RegistrationForm()
 
