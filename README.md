@@ -1,7 +1,7 @@
 # Ala-Project-2
 
-Registreren Styling
-Login Styling
+<!-- Registreren Styling -->
+<!-- Login Styling -->
 Zoeken Styling
 Content knop linken aan Zoeken
 Login custom form

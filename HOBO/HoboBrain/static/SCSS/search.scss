@@ -7,6 +7,10 @@ $parafont: "Montserrat", sans-serif;
 $titlefont: NeutraText;
 
 main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     #searchbar {
         display: flex;
         width: 100%;
@@ -20,6 +24,18 @@ main {
             font-size: 18px;
             color: $dark;
             background-color: $white;
+        }
+    }
+
+    ul {
+        width: 95%;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 20px;
+        padding: 0;
+
+        img {
+            width: 100%;
         }
     }
 }

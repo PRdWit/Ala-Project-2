@@ -17,9 +17,7 @@
 
 <ul>
     {% for item in results_with_images %}
-        <p>
-            <img  src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="{{ item.serie.serietitel }}">
-        </p>
+        <img  src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="{{ item.serie.serietitel }}">
     {% empty %}
         <p>No results found.</p>
     {% endfor %}

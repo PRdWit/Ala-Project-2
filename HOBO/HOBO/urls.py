@@ -22,8 +22,6 @@ from HoboBrain.views import registreren, CustomLoginView, CustomLogoutView
 urlpatterns = [
     path('', views.homepage, name="homepage"),
     path('admin/', admin.site.urls),
-    path('profile/', views.profile, name="profile"),
-    path('content/', views.content, name="content"),
     path('search/', views.search, name="search"),
     path('history/', views.history, name="history"),
     path('inloggen/', CustomLoginView.as_view(), name="inloggen"),

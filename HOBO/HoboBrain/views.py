@@ -40,9 +40,6 @@ def homepage(request):
 def profile(request):
     return render(request, "profile.html")
 
-def content(request):
-    return render(request, "content.html")
-
 def search(request):
     search_term = request.GET.get('query', '')
 
