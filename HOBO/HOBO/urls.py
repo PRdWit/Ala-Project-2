@@ -25,6 +25,7 @@ urlpatterns = [
     path('search/', views.search, name="search"),
     path('history/', views.history, name="history"),
     path('inloggen/', CustomLoginView.as_view(), name="inloggen"),
+    path('profile/', views.profile, name="profile"),
     path('registreren/', registreren, name="registreren"),
     path('<int:SerieID>/', views.serie_detail, name='serie_detail')
 ]
