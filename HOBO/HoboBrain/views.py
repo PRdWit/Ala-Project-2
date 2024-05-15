@@ -2,9 +2,10 @@ from django.contrib.auth import login, authenticate
 from django.shortcuts import render, get_object_or_404, redirect
 from HoboBrain.models import Serie, Klant, Genre, Abonnement
 from django.db.models import Q
+from django.contrib import messages
 from django.db import connection
 from django.urls import reverse_lazy
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import LogoutView
 from HoboBrain.forms import RegistrationForm
 import hashlib
 
@@ -94,12 +95,25 @@ def registreren(request):
 
     return render(request, "registreren.html", {"form": form, "genres": genres, "aboIDs": aboIDs})
 
-class CustomLoginView(LoginView):
-    template_name = "inloggen.html"
+def inloggen(request):
+    if request.method == 'POST':
+        voornaam = request.POST.get('username')
+        password = request.POST.get('password')
+        hashed_password = hashlib.sha256(password.encode()).hexdigest()
+
+        try:
+            user = Klant.objects.get(voornaam=voornaam, password=hashed_password)
+            return redirect('/')
+        except Klant.DoesNotExist:
+            error_message = "Invalid username or password"
+            return render(request, 'inloggen.html', {'error_message': error_message})
+    else:
+        return render(request, 'inloggen.html')
+
 
 # Logout view
-class CustomLogoutView(LogoutView):
-    next_page = reverse_lazy("login")
+#class CustomLogoutView(LogoutView):
+    #next_page = reverse_lazy("login")
 
 def serie_detail(request, SerieID):
     serie = get_object_or_404(Serie, pk=SerieID)

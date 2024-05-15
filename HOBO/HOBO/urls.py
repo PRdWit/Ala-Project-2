@@ -17,14 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from HoboBrain import views
-from HoboBrain.views import registreren, CustomLoginView, CustomLogoutView
+from HoboBrain.views import registreren, inloggen
 
 urlpatterns = [
     path('', views.homepage, name="homepage"),
     path('admin/', admin.site.urls),
     path('search/', views.search, name="search"),
     path('history/', views.history, name="history"),
-    path('inloggen/', CustomLoginView.as_view(), name="inloggen"),
+    path('inloggen/', views.inloggen, name="inloggen"),
     path('profile/', views.profile, name="profile"),
     path('registreren/', registreren, name="registreren"),
     path('<int:SerieID>/', views.serie_detail, name='serie_detail')
