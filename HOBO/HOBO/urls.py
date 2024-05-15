@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from HoboBrain import views
-from HoboBrain.views import registreren, inloggen
+from HoboBrain.views import registreren
 
 urlpatterns = [
     path('', views.homepage, name="homepage"),
