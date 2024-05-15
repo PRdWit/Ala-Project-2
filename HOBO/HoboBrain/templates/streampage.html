@@ -11,7 +11,7 @@
 {% block content %}
     <section id="details">
         <h1>{{serie.serietitel}}</h1>
-        <p>IMDB Link: <a href="{{ imbdlink }}">{{ imbdlink }}</a></p>
+        <p>{{ imbdlink }}</p>
         {% for genre in genres %}
             <p>{{ genre }}</p>
         {% endfor %}
