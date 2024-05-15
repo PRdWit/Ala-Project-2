@@ -7,7 +7,7 @@
 <!-- Login custom form -->
 <!-- Inlog knop linken (afhankelijk van inlogstatus) -->
 ingelogd checks
-invullen serie details
+<!--invullen serie details -->
 styling serie details
 laatst gekeken series
 dropdown voor aboID soort (register)
