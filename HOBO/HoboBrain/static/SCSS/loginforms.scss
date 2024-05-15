@@ -50,6 +50,15 @@ main {
                 cursor: pointer;
             }
         }
+
+        select {
+            background-color: $white;
+            font-family: $parafont;
+            border: none;
+            font-size: 16px;
+            width: 15.5%;
+            padding: 3px 5px;
+        }
     }
 
     p {
