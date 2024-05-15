@@ -121,8 +121,3 @@ def serie_detail(request, SerieID):
         'image_name': image
     }
     return render(request, 'streampage.html', context)
-
-#SELECT genre.GenreNaam
-#FROM genre
-#INNER JOIN serie_genre ON genre.GenreID = serie_genre.GenreID
-#WHERE serie_genre.SerieID = <your_serie_id>;
