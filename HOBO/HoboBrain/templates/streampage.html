@@ -9,9 +9,14 @@
 {% endblock %}
 
 {% block content %}
-    <h1>{{serie.serietitel}}</h1>
-    <p>IMDB Link: <a href="{{ imbdlink }}">{{ imbdlink }}</a></p>
+    <section id="details">
+        <h1>{{serie.serietitel}}</h1>
+        <p>IMDB Link: <a href="{{ imbdlink }}">{{ imbdlink }}</a></p>
         {% for genre in genres %}
             <p>{{ genre }}</p>
         {% endfor %}
+    </section>
+    <section id="idkright">
+        <img src="{% static 'Pics/images/' %}{{ image_name }}">
+    </section>
 {% endblock %}
