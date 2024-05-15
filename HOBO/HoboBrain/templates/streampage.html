@@ -1,4 +1,13 @@
 {% extends "base.html" %} {% block title %}Stream Info ~ HoBo {% endblock %}
+
+{% block scss %}
+    {% load static %}
+    {% load compress %}
+    {% compress css %}
+            <link rel="stylesheet" href="{%static 'SCSS/detail.scss' %}" type="text/x-scss">
+    {% endcompress %}
+{% endblock %}
+
 {% block content %}
     <h1>{{serie.serietitel}}</h1>
     <p>IMDB Link: <a href="{{ imbdlink }}">{{ imbdlink }}</a></p>
