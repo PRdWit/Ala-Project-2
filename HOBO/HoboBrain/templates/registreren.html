@@ -25,17 +25,18 @@
         <input type="email" id="email" name="email" required><br><br>
 
         <label for="aboID">aboID:</label><br>
-        <select id="aboID" name="aboId" required>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
+        <select id="aboID" name="aboID" required>
+            <option value="" selected disabled>Select an option</option>
+            {% for abo in aboIDs %}
+                <option value="{{ abo.aboid }}">{{ abo.aboid }}</option>
+            {% endfor %}
         </select><br><br>
 
         <label for="genre">Preferred Genre:</label><br>
         <select id="genre" name="genre" required>
-            <option value="1">One genre</option>
-            <option value="2">Second genre</option>
-            <option value="3">Third genre</option>
+            {% for genre in genres %}
+                <option value="{{ genre.genreid }}">{{ genre.genrenaam }}</option>
+            {% endfor %}
         </select><br><br>
 
         <label for="password">Password:</label><br>

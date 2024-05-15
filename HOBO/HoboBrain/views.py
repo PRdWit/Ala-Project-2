@@ -1,6 +1,6 @@
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, get_object_or_404, redirect
-from HoboBrain.models import Serie, Klant
+from HoboBrain.models import Serie, Klant, Genre, Abonnement
 from django.db.models import Q
 from django.db import connection
 from django.urls import reverse_lazy
@@ -69,12 +69,12 @@ def inloggen(request):
 def registreren(request): 
     if request.method == "POST":
         voornaam = request.POST.get('voornaam')
-        aboID = request.POST.get('aboID')
         tussenvoegsel = request.POST.get('tussenvoegsel')
         achternaam = request.POST.get('achternaam')
         email = request.POST.get('email')
         password = request.POST.get('password')
         genre = request.POST.get('genre')
+        aboID = request.POST.get('aboID')
 
         hashed_password = hashlib.sha256(password.encode()).hexdigest()
 
@@ -88,8 +88,11 @@ def registreren(request):
         return redirect("inloggen")
     else:
         form = RegistrationForm()
+        genres = Genre.objects.all()
+        aboIDs = Abonnement.objects.all()
 
-    return render(request, "registreren.html", {"form": form})
+
+    return render(request, "registreren.html", {"form": form, "genres": genres, "aboIDs": aboIDs})
 
 class CustomLoginView(LoginView):
     template_name = "inloggen.html"
