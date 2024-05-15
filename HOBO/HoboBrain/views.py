@@ -101,9 +101,11 @@ class CustomLogoutView(LogoutView):
 def serie_detail(request, SerieID):
     serie = get_object_or_404(Serie, pk=SerieID)
     imbdlink = serie.imdblink
+    image = f'{str(serie.serieid).zfill(5)}.jpg'
 
     context = {
         'serie': serie,
-        'imbdlink': imbdlink
+        'imbdlink': imbdlink,
+        'image_name': image
     }
     return render(request, 'streampage.html', context)
