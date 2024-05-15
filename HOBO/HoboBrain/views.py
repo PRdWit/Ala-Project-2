@@ -102,8 +102,22 @@ def serie_detail(request, SerieID):
     serie = get_object_or_404(Serie, pk=SerieID)
     imbdlink = serie.imdblink
 
+    with connection.cursor() as cursor:
+        cursor.execute(
+            "SELECT genre.GenreNaam FROM genre INNER JOIN serie_genre ON genre.GenreID = serie_genre.GenreID WHERE serie_genre.SerieID = %s;",
+            [SerieID]
+        )
+        genres = [row[0] for row in cursor.fetchall()]
+
+
     context = {
         'serie': serie,
-        'imbdlink': imbdlink
+        'imbdlink': imbdlink,
+        'genres': genres
     }
     return render(request, 'streampage.html', context)
+
+#SELECT genre.GenreNaam
+#FROM genre
+#INNER JOIN serie_genre ON genre.GenreID = serie_genre.GenreID
+#WHERE serie_genre.SerieID = <your_serie_id>;
