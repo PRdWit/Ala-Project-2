@@ -111,6 +111,16 @@ def inloggen(request):
             return render(request, 'inloggen.html', {'error_message': error_message})
     else:
         return render(request, 'inloggen.html')
+    
+
+def custom_login_required(view_func):
+    def _wrapped_view_func(request, *args, **kwargs):
+        if 'klant_id' not in request.session:
+            return redirect('inloggen')
+        return view_func(request, *args, **kwargs)
+    return _wrapped_view_func
+
+
 
 
 # Logout view
