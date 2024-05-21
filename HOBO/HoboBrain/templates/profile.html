@@ -1,4 +1,17 @@
-{% extends "base.html" %} {% block title %}Profile ~ HoBo {% endblock %}
+{% extends "base.html" %} {% block title %} Profile ~ HoBo {% endblock %}
+
+{% block scss %}
+    {% load static %}
+    {% load compress %}
+    {% compress css %}
+            <link rel="stylesheet" href="{%static 'SCSS/profile.scss' %}" type="text/x-scss">
+    {% endcompress %}
+{% endblock %}
+
 {% block content %}
-    <h1>Edit Profile</h1>
+    <h1>Profile</h1>
+    <section id="2sections">
+        <section id="profLeft"></section>
+        <section id="profRight"></section>
+    </section>
 {% endblock %}
