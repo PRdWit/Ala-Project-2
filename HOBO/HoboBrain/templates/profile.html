@@ -10,7 +10,7 @@
 
 {% block content %}
     <h1>Profile</h1>
-    <h2>Welkom *username*!</h2>
+    <h2>Welcome, {{ request.session.voornaam }}</h2>
     <section id="sections">
         <section id="pLeft">
             <p>Username aanpassen</p>
@@ -20,9 +20,7 @@
         <section id="pRight">
             <p>abonnement aanpassen</p>
             <p>genre aanpassen</p>
-            <button>Uitloggen</button>
+            <a href="{% url 'logout' %}">Logout</a>
         </section>
     </section>
-    <h1>Edit Profile</h1>
-    <a href="{% url 'logout' %}">Logout</a>
 {% endblock %}
