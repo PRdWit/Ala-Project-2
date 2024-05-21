@@ -34,9 +34,10 @@ main {
             }
     
             &#pRight {
-                button {
+                a {
                     background-color: $lime;
                     color: $dark;
+                    text-decoration: none;
                     border: none;
                     font-family: $parafont;
                     font-size: 18px;
