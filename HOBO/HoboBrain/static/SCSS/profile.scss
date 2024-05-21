@@ -19,6 +19,10 @@ main {
         margin-bottom: 0;
     }
 
+    h2 {
+        font-size: 28px;
+    }
+
     #sections {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -42,6 +46,7 @@ main {
                     font-family: $parafont;
                     font-size: 18px;
                     padding: 5px 10px;
+                    font-weight: bold;
                 }
             }
         }

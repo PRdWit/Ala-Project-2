@@ -8,7 +8,7 @@ registreren - abonnement type-> woorden
 profiel - genre aanpassen
 profiel - abonnement aanpassen
 profiel - username, wachtwoord, email aanpassen
-profiel - logout
+<!-- profiel - logout -->
 History - tabellen, kijkgeschiedenis, etc etc etc
 Adminpanel - admin users
 Adminpanel - users aanpassen

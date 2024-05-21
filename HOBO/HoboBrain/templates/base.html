@@ -34,7 +34,7 @@
             </a>
             {% if request.session.klant_id %}
                 <a href="{% url 'profile' %}">
-                    <p>Profile</p>
+                    <p>{{ request.session.voornaam }}</p>
                     <i class="fa-solid fa-user" id="profile"></i>
                 </a>
             {% else %}
