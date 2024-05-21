@@ -102,7 +102,9 @@ def inloggen(request):
         hashed_password = hashlib.sha256(password.encode()).hexdigest()
 
         try:
-            user = Klant.objects.get(voornaam=voornaam, password=hashed_password)
+            klant = Klant.objects.get(voornaam=voornaam, password=hashed_password)
+            request.session['klant_id'] = klant.klantnr
+            request.session['voornaam'] = klant.voornaam
             return redirect('/')
         except Klant.DoesNotExist:
             error_message = "Invalid username or password"
