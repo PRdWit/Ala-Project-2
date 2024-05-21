@@ -14,10 +14,36 @@ main {
     grid-template-columns: 1fr 1fr;
 
     #details {
-        padding: 0px 30px;
+        padding: 10% 50px;
 
         h1 {
-            font-size: 36px;
+            font-size: 48px;
+        }
+
+        p {
+            font-size: 22px;
+        }
+
+        #genres {
+            display: flex;
+            gap: 20px;
+
+            .genre {
+                background-color: $blue;
+                padding: 5px 10px;
+                border-radius: 10px;
+                width: fit-content;
+                font-size: 22px;
+                margin: 10px 0;
+            }
+        }
+
+        #play {
+            background-color: $lime;
+            color: $dark;
+            text-decoration: none;
+            padding: 7px 17px;
+            font-size: 26px;
         }
     }
 

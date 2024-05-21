@@ -10,7 +10,7 @@
     {% endcompress %}
 {% endblock %}
 
-{% comment %} <script src="{% static 'js-script/index.js' %}" defer></script> {% endcomment %}
+{% block js %}<script src="{% static './js-script/index.js' %}" defer></script>{% endblock %}
 
 {% block content %}
 <section id="top-section">

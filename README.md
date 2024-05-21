@@ -1,14 +1,18 @@
 # Ala-Project-2
-
-<!-- Registreren Styling -->
-<!-- Login Styling -->
-<!-- Zoeken Styling -->
-<!-- Content knop linken aan Zoeken -->
-<!-- Login custom form -->
-<!-- Inlog knop linken (afhankelijk van inlogstatus) -->
 ingelogd checks, need to change the way it authenticates
-<!--invullen serie details -->
-styling serie details
-laatst gekeken series
-<!--dropdown voor aboID soort (register)-->
-<!--dropdown voor genre-->
+details - styling
+details - afleveringen
+details - seizoenen
+home - laatst gekeken series
+registreren - abonnement type-> woorden
+profiel - genre aanpassen
+profiel - abonnement aanpassen
+profiel - username, wachtwoord, email aanpassen
+History - tabellen, kijkgeschiedenis, etc etc etc
+Adminpanel - admin users
+Adminpanel - users aanpassen
+Adminpanel - series aanpassen
+
+# add-on ideas
+clickable genres in detail page -> send to content/search with genre in searchbar
+Ask Max or sum for trailers for active series lol
