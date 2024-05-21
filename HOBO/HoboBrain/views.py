@@ -120,7 +120,12 @@ def custom_login_required(view_func):
         return view_func(request, *args, **kwargs)
     return _wrapped_view_func
 
-
+def logout(request):
+    if 'klant_id' in request.session:
+        del request.session['klant_id']
+    if 'klant_voornaam' in request.session:
+        del request.session['klant_voornaam']
+    return redirect('inloggen')
 
 
 # Logout view
