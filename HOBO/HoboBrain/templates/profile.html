@@ -13,13 +13,37 @@
     <h2>Welcome, {{ request.session.voornaam }}!</h2>
     <section id="sections">
         <section id="pLeft">
-            <p>Username aanpassen</p>
-            <p>email aanpassen</p>
-            <p>wachtwoord aanpassen</p>
+            <form method="POST">
+                {% csrf_token %}
+                <label for="voornaam">Username/Voornaam:</label><br>
+                <input type="text" id="voornaam" name="voornaam" required><br><br>
+                <label for="email">Email aanpassen:</label><br>
+                <input type="email" id="email-change" name="email-change"><br><br>
+                <label for="password-change">Wachtwoord aanpassen:</label><br>
+                <input type="password" id="password-change" name="password-change"><br><br>
+                <label for="password-confirm">Wachtwoord bevestigen:</label><br>
+                <input type="password" id="password-confirm" name="password-confirm"><br><br>
+                <button type="submit">Profiel aanpassen</button>
+            </form>
         </section>
         <section id="pRight">
-            <p>abonnement aanpassen</p>
-            <p>genre aanpassen</p>
+            <form method="POST">
+                {% csrf_token %}
+                <label for="aboID-change">Abonnement aanpassen:</label><br>
+                <select id="aboID-change" name="aboID-change" required>
+                    <option value="" selected disabled>Select an option</option>
+                    {% for abo in aboIDs %}
+                        <option value="{{ abo.aboid }}">{{ abo.abonaam }}</option>
+                    {% endfor %}
+                </select><br><br>
+
+                <label for="genre">Genre Aanpassen:</label><br>
+                <select id="genre" name="genre" required>
+                    {% for genre in genres %}
+                        <option value="{{ genre.genreid }}">{{ genre.genrenaam }}</option>
+                    {% endfor %}
+                </select><br><br>
+            </form>
             <a href="{% url 'logout' %}">Logout</a>
         </section>
     </section>

@@ -39,7 +39,23 @@ def homepage(request):
     return render(request, "homepage.html", context)
 
 def profile(request):
-    return render(request, "profile.html")
+    if request.method == "POST":
+        voornaam = request.POST.get('voornaam')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        genre = request.POST.get('genre')
+        aboID = request.post.get('aboID')
+
+        with connection.cursor() as cursor:
+            cursor.execute(
+                "UPDATE klant SET voornaam= %s, email=%s, password=%s, genre=%s, aboID=%s) "
+                [voornaam, email, password, genre, aboID]
+            )
+    else:
+        genres = Genre.objects.all()
+        aboIDs = Abonnement.objects.all()
+
+    return render(request, "profile.html", {"genres": genres, "aboIDs": aboIDs})
 
 def search(request):
     search_term = request.GET.get('query', '')
