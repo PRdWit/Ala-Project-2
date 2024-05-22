@@ -20,15 +20,24 @@
         <br><br>
         <a href="#" id="play"><i class="fa-solid fa-play"></i> Play</a>
         <br><br>
+        <select id="seizoenen" name="seizoen" onchange="filterepisodes()">
+            {% for season in seasons %}
+            <option value="{{ season.rang }}">{{ season.rang }}</option>
+            {% endfor %}
+        </select>
         <h3>Seizoenen</h3>
         {% for season in seasons %}
             <h2>Seizoen {{ season.rang }}</h2>
             {% for episode in season.aflevering_set.all %}
-                <p>{{ episode.afltitel }}</p>
+                <p class="episode {{ season.rang }}">{{ episode.afltitel }}</p>
             {% endfor %}
         {% endfor %}
     </section>
     <section id="idkright">
         <img src="{% static 'Pics/images/' %}{{ image_name }}">
     </section>
+{% endblock %}
+
+{% block js %}
+    <script src="{% static './js-script/seasons.js' %}" defer></script>
 {% endblock %}
