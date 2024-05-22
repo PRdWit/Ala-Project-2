@@ -4,7 +4,7 @@ ingelogd checks, need to change the way it authenticates
 details - afleveringen
 details - seizoenen
 home - laatst gekeken series
-registreren - abonnement type-> woorden
+<!-- registreren - abonnement type-> woorden -->
 profiel - genre aanpassen
 profiel - abonnement aanpassen
 profiel - username, wachtwoord, email aanpassen
