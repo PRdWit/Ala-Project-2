@@ -1,8 +1,8 @@
 # Ala-Project-2
 ingelogd checks, need to change the way it authenticates
 <!-- details - styling --> (Done for now)
-details - afleveringen
-details - seizoenen
+<!-- details - afleveringen -->
+<!-- details - seizoenen -->
 home - laatst gekeken series
 <!-- registreren - abonnement type-> woorden -->
 profiel - genre aanpassen
