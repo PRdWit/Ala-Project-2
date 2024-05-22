@@ -5,9 +5,9 @@ details - afleveringen
 details - seizoenen
 home - laatst gekeken series
 <!-- registreren - abonnement type-> woorden -->
-profiel - genre aanpassen
+<!--profiel - genre aanpassen
 profiel - abonnement aanpassen
-profiel - username, wachtwoord, email aanpassen
+profiel - username, wachtwoord, email aanpassen -->
 <!-- profiel - logout -->
 History - tabellen, kijkgeschiedenis, etc etc etc
 Adminpanel - admin users
