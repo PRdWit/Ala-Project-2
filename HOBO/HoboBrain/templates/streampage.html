@@ -9,33 +9,47 @@
 {% endblock %}
 
 {% block content %}
-    <section id="details">
-        <h1>{{serie.serietitel}}</h1>
-        <p class="desc">{{ imbdlink }}</p>
-        <section id="genres">
-            {% for genre in genres %}
-                <p class="genre">{{ genre }}</p>
-            {% endfor %}
+    <section id="top">
+        <section id="details">
+            <h1>{{serie.serietitel}}</h1>
+            <p class="desc">{{ imbdlink }}</p>
+            <section id="genres">
+                {% for genre in genres %}
+                    <p class="genre">{{ genre }}</p>
+                {% endfor %}
+            </section>
+            <br><br>
+            <a href="#" id="play"><i class="fa-solid fa-play"></i> Play</a>
         </section>
-        <br><br>
-        <a href="#" id="play"><i class="fa-solid fa-play"></i> Play</a>
-        <br><br>
+        <section id="idkright">
+            <img src="{% static 'Pics/images/' %}{{ image_name }}">
+        </section>
+    </section>
+    <section id="bottom">
+        <h3>Afleveringen</h3>
         <select id="seizoenen" name="seizoen" onchange="filterepisodes()">
             {% for season in seasons %}
-            <option value="{{ season.rang }}">{{ season.rang }}</option>
+            <option value="{{ season.rang }}">Seizoen {{ season.rang }}</option>
             {% endfor %}
         </select>
-        <h3>Seizoenen</h3>
-        {% for season in seasons %}
-            <h2>Seizoen {{ season.rang }}</h2>
-            {% for episode in season.aflevering_set.all %}
-                <p class="episode {{ season.rang }}">{{ episode.afltitel }}</p>
-            {% endfor %}
-        {% endfor %}
-    </section>
-    <section id="idkright">
-        <img src="{% static 'Pics/images/' %}{{ image_name }}">
-    </section>
+        <section id="carousel">
+            <section id="afleveringen">
+                {% for season in seasons %}
+                    {% for episode in season.aflevering_set.all %}
+                        <div class="episode {{ season.rang }}">
+                            <img src="{% static 'Pics/images/' %}{{ image_name }}">
+                            <p>{{ episode.afltitel }}</p>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+            </section>
+            <div class="shadow"></div>
+            <div class="carousel-controls">
+                <a onclick="carouselEpi(-1)"><i class="fa-solid fa-angle-left"></i></a>
+                <a onclick="carouselEpi(1)"><i class="fa-solid fa-angle-right"></i></a>
+            </div>
+        </section>
+    </section>  
 {% endblock %}
 
 {% block js %}
