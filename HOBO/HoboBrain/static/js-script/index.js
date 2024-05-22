@@ -3,19 +3,11 @@ let margin = 10;
 let item = document.querySelector(".carousel-item").getBoundingClientRect();
 let width = item.width;
 
-console.log(width);
-
 let itemWidth = width+margin;
-
-console.log(itemWidth);
 
 let screenSize = window.innerWidth - 25;
 
-console.log(screenSize);
-
 let maxItems = screenSize / (itemWidth);
-
-console.log(maxItems);
 
 const carouselInner = document.getElementById("carousel-inner");
 const carouselInner2 = document.getElementById("carousel-inner2");

@@ -1,6 +1,6 @@
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, get_object_or_404, redirect
-from HoboBrain.models import Serie, Klant, Genre, Abonnement
+from HoboBrain.models import Serie, Klant, Genre, Abonnement, Aflevering, Seizoen
 from django.db.models import Q
 from django.contrib import messages
 from django.db import connection
@@ -108,9 +108,6 @@ def search(request):
 def history(request):
     return render(request, "history.html")
 
-def inloggen(request):
-    return render(request, "inloggen.html")
-
 def registreren(request): 
     if request.method == "POST":
         voornaam = request.POST.get('voornaam')
@@ -188,11 +185,16 @@ def serie_detail(request, SerieID):
         )
         genres = [row[0] for row in cursor.fetchall()]
 
+        seizoenen = Seizoen.objects.filter(serieid=SerieID).prefetch_related('aflevering_set')
+
+        # afleveringen = Aflevering.objects.filter(seizid_id=SerieID)
+
 
     context = {
         'serie': serie,
         'imbdlink': imbdlink,
         'genres': genres,
-        'image_name': image
+        'image_name': image,
+        'seasons': seizoenen
     }
     return render(request, 'streampage.html', context)

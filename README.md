@@ -1,13 +1,13 @@
 # Ala-Project-2
 ingelogd checks, need to change the way it authenticates
-<!-- details - styling --> (Done for now)
-details - afleveringen
-details - seizoenen
+<!-- details - styling -->
+<!-- details - afleveringen -->
+<!-- details - seizoenen -->
 home - laatst gekeken series
 <!-- registreren - abonnement type-> woorden -->
-<!--profiel - genre aanpassen
-profiel - abonnement aanpassen
-profiel - username, wachtwoord, email aanpassen -->
+<!-- profiel - genre aanpassen -->
+<!-- profiel - abonnement aanpassen -->
+<!-- profiel - username, wachtwoord, email aanpassen -->
 <!-- profiel - logout -->
 History - tabellen, kijkgeschiedenis, etc etc etc
 Adminpanel - admin users
