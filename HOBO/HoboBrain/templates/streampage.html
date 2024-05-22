@@ -19,6 +19,14 @@
         </section>
         <br><br>
         <a href="#" id="play"><i class="fa-solid fa-play"></i> Play</a>
+        <br><br>
+        <h3>Seizoenen</h3>
+        {% for season in seasons %}
+            <h2>Seizoen {{ season.rang }}</h2>
+            {% for episode in season.aflevering_set.all %}
+                <p>{{ episode.afltitel }}</p>
+            {% endfor %}
+        {% endfor %}
     </section>
     <section id="idkright">
         <img src="{% static 'Pics/images/' %}{{ image_name }}">
