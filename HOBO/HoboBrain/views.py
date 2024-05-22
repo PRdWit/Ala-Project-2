@@ -39,23 +39,51 @@ def homepage(request):
     return render(request, "homepage.html", context)
 
 def profile(request):
+    klant_id = request.session.get('klant_id')
+
     if request.method == "POST":
         voornaam = request.POST.get('voornaam')
         email = request.POST.get('email')
         password = request.POST.get('password')
         genre = request.POST.get('genre')
-        aboID = request.post.get('aboID')
+        aboID = request.POST.get('aboID')
+
+        hashed_password = None
+        if password:
+            hashed_password = hashlib.sha256(password.encode()).hexdigest()
 
         with connection.cursor() as cursor:
-            cursor.execute(
-                "UPDATE klant SET voornaam= %s, email=%s, password=%s, genre=%s, aboID=%s) "
-                [voornaam, email, password, genre, aboID]
-            )
+            if hashed_password:
+                cursor.execute(
+                    "UPDATE klant SET voornaam = %s, email = %s, password = %s, genre = %s, aboID = %s WHERE klantnr = %s",
+                    [voornaam, email, hashed_password, genre, aboID, klant_id]
+                )
+            else:
+                cursor.execute(
+                    "UPDATE klant SET voornaam = %s, email = %s, genre = %s, aboID = %s WHERE klantnr = %s",
+                    [voornaam, email, genre, aboID, klant_id]
+                )
+
+        request.session['voornaam'] = voornaam
+
+        return redirect('/profile')
+
     else:
         genres = Genre.objects.all()
         aboIDs = Abonnement.objects.all()
 
-    return render(request, "profile.html", {"genres": genres, "aboIDs": aboIDs})
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT voornaam, email, genre, aboID FROM klant WHERE klantnr = %s", [klant_id])
+            klant = cursor.fetchone()
+        
+        return render(request, "profile.html", {
+            "voornaam": klant[0],
+            "email": klant[1],
+            "genre": klant[2],
+            "aboID": klant[3],
+            "genres": genres,
+            "aboIDs": aboIDs
+        })
 
 def search(request):
     search_term = request.GET.get('query', '')

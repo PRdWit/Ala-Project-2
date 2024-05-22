@@ -4,47 +4,44 @@
     {% load static %}
     {% load compress %}
     {% compress css %}
-            <link rel="stylesheet" href="{%static 'SCSS/profile.scss' %}" type="text/x-scss">
+            <link rel="stylesheet" href="{% static 'SCSS/profile.scss' %}" type="text/x-scss">
     {% endcompress %}
 {% endblock %}
 
 {% block content %}
     <h1>Profile</h1>
     <h2>Welcome, {{ request.session.voornaam }}!</h2>
-    <section id="sections">
-        <section id="pLeft">
-            <form method="POST">
-                {% csrf_token %}
-                <label for="voornaam">Username/Voornaam:</label><br>
-                <input type="text" id="voornaam" name="voornaam" required><br><br>
+    <form method="POST" action="{% url 'profile' %}">
+        {% csrf_token %}
+        <section id="sections">
+            <section id="pLeft">
+                <label for="voornaam">Username aanpassen:</label><br>
+                <input type="text" id="voornaam" name="voornaam" value="{{ voornaam }}" required><br><br>
+                
                 <label for="email">Email aanpassen:</label><br>
-                <input type="email" id="email-change" name="email-change"><br><br>
-                <label for="password-change">Wachtwoord aanpassen:</label><br>
-                <input type="password" id="password-change" name="password-change"><br><br>
-                <label for="password-confirm">Wachtwoord bevestigen:</label><br>
-                <input type="password" id="password-confirm" name="password-confirm"><br><br>
-                <button type="submit">Profiel aanpassen</button>
-            </form>
-        </section>
-        <section id="pRight">
-            <form method="POST">
-                {% csrf_token %}
-                <label for="aboID-change">Abonnement aanpassen:</label><br>
-                <select id="aboID-change" name="aboID-change" required>
+                <input type="email" id="email" name="email" value="{{ email }}"><br><br>
+                
+                <label for="password">Wachtwoord aanpassen:</label><br>
+                <input type="password" id="password" name="password"><br><br>
+            </section>
+            <section id="pRight">
+                <label for="aboID">Abonnement aanpassen:</label><br>
+                <select id="aboID" name="aboID" required>
                     <option value="" selected disabled>Select an option</option>
                     {% for abo in aboIDs %}
-                        <option value="{{ abo.aboid }}">{{ abo.abonaam }}</option>
+                        <option value="{{ abo.aboid }}" {% if abo.aboid == aboID %}selected{% endif %}>{{ abo.abonaam }}</option>
                     {% endfor %}
                 </select><br><br>
 
                 <label for="genre">Genre Aanpassen:</label><br>
                 <select id="genre" name="genre" required>
                     {% for genre in genres %}
-                        <option value="{{ genre.genreid }}">{{ genre.genrenaam }}</option>
+                        <option value="{{ genre.genreid }}" {% if genre.genreid == genre %}selected{% endif %}>{{ genre.genrenaam }}</option>
                     {% endfor %}
                 </select><br><br>
-            </form>
-            <a href="{% url 'logout' %}">Logout</a>
+            </section>
         </section>
-    </section>
+        <button type="submit">Profiel aanpassen</button>
+    </form>
+    <a href="{% url 'logout' %}">Logout</a>
 {% endblock %}
