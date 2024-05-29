@@ -1,6 +1,8 @@
 from django.contrib.auth import login, authenticate
 from django.shortcuts import render, get_object_or_404, redirect
-from HoboBrain.models import Serie, Klant, Genre, Abonnement, Aflevering, Seizoen
+from django_tables2 import RequestConfig
+from HoboBrain.tables import streamTable
+from HoboBrain.models import Serie, Klant, Genre, Abonnement, Aflevering, Seizoen, Stream
 from django.db.models import Q
 from django.contrib import messages
 from django.db import connection
@@ -106,7 +108,11 @@ def search(request):
 
 
 def history(request):
-    return render(request, "history.html")
+    queryset = Stream.objects.all()
+    table = streamTable(queryset)
+    RequestConfig(request).configure(table)
+
+    return render(request, "history.html", {"table": table})
 
 def registreren(request): 
     if request.method == "POST":

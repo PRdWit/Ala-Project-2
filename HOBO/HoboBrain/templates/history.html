@@ -2,12 +2,20 @@
 
 {% block title %} History ~ HoBo {% endblock %}
 
-{% comment %} {% block scss %}
+{% block scss %}
     {% load static %}
     {% load compress %}
     {% compress css %}
             <link rel="stylesheet" href="{%static 'SCSS/homepage.scss' %}" type="text/x-scss">
     {% endcompress %}
-{% endblock %} {% endcomment %}
+{% endblock %}
 
-{% block content %}{% endblock %}
+{% block content %}
+{% load django_tables2 %}
+<body>
+    <div class="container">
+        <!-- Other content of your existing template -->
+        {% render_table table %}
+    </div>
+</body>
+{% endblock %}
