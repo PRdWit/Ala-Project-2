@@ -10,42 +10,45 @@
     {% endcompress %}
 {% endblock %}
 
-{% block js %}<script src="{% static './js-script/index.js' %}" defer></script>{% endblock %}
-
 {% block content %}
+<script src="{% static './js-script/index.js' %}" defer></script>
+
 <section id="top-section">
     <button id="play"><i class="fa-solid fa-play"></i> Play</button>
     <button id="info"><i class="fa-solid fa-info"></i> More Info</button>
 </section>
 <section id="bottom-section">
-    <section id="Recent">
-        <h3>Recently Watched</h3>
-        <div class="carousel">
-            <div class="carousel-inner" id="carousel-inner">
-              <div class="carousel-item">Slide 1</div>
-              <div class="carousel-item">Slide 2</div>
-              <div class="carousel-item">Slide 3</div>
-              <div class="carousel-item">Slide 4</div>
-              <div class="carousel-item">Slide 5</div>
-              <div class="carousel-item">Slide 6</div>
-              <div class="carousel-item">Slide 7</div>
-              <div class="carousel-item">Slide 8</div>
-              <div class="carousel-item">Slide 9</div>
-              <div class="carousel-item">Slide 10</div>
+    {% if request.session.klant_id %}
+        <script src="{% static './js-script/recentCar.js' %}" defer></script>
+        <section id="Recent">
+            <h3>Recently Watched</h3>
+            <div class="carousel">
+                <div class="carousel-inner" id="carousel-inner">
+                    <div class="carousel-item">Slide 1</div>
+                    <div class="carousel-item">Slide 2</div>
+                    <div class="carousel-item">Slide 3</div>
+                    <div class="carousel-item">Slide 4</div>
+                    <div class="carousel-item">Slide 5</div>
+                    <div class="carousel-item">Slide 6</div>
+                    <div class="carousel-item">Slide 7</div>
+                    <div class="carousel-item">Slide 8</div>
+                    <div class="carousel-item">Slide 9</div>
+                    <div class="carousel-item">Slide 10</div>
+                </div>
+                <div class="shadow"></div>
+                <div class="carousel-controls">
+                    <a onclick="carouselRecent(-1)"><i class="fa-solid fa-angle-left"></i></a>
+                    <a onclick="carouselRecent(1)"><i class="fa-solid fa-angle-right"></i></a>
+                </div>
             </div>
-            <div class="shadow"></div>
-            <div class="carousel-controls">
-                <a onclick="carouselRecent(-1)"><i class="fa-solid fa-angle-left"></i></a>
-                <a onclick="carouselRecent(1)"><i class="fa-solid fa-angle-right"></i></a>
-            </div>
-        </div>
-    </section>
+        </section>
+    {% endif %}
     <section id="Trending">
         <h3>Trending</h3>
         <div class="carousel">
             <div class="carousel-inner" id="carousel-inner2">
                 {% for item in trending_series_with_images %}
-                    <a href="{% url 'serie_detail' item.serie.serieid %}"><img class="carousel-item" src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="Image for {{ item.serie.serietitel }}"></a>
+                    <a href="{% url 'serie_detail' item.serie.serieid %}"><img class="carousel-item carousel-trending" src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="Image for {{ item.serie.serietitel }}"></a>
                 {% endfor %}
             </div>
             <div class="shadow"></div>
