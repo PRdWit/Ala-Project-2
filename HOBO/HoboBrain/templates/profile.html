@@ -41,7 +41,9 @@
                 </select><br><br>
             </section>
         </section>
-        <button type="submit">Profiel aanpassen</button>
+        <section id="buttons">
+            <button type="submit">Profiel aanpassen</button>
+            <a href="{% url 'logout' %}">Logout</a>
+        </section> 
     </form>
-    <a href="{% url 'logout' %}">Logout</a>
 {% endblock %}
