@@ -10,9 +10,9 @@ home - laatst gekeken series
 <!-- profiel - username, wachtwoord, email aanpassen -->
 <!-- profiel - logout -->
 History - tabellen, kijkgeschiedenis, etc etc etc
-Adminpanel - admin users
+<!-- Adminpanel - admin users
 Adminpanel - users aanpassen
-Adminpanel - series aanpassen
+Adminpanel - series aanpassen -->
 
 # add-on ideas
 clickable genres in detail page -> send to content/search with genre in searchbar

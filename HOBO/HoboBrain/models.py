@@ -10,6 +10,7 @@ class Abonnement(models.Model):
     class Meta:
         managed = False
         db_table = 'abonnement'
+        verbose_name_plural = "Abonnoment"
 
 
 class Aflevering(models.Model):
@@ -22,6 +23,7 @@ class Aflevering(models.Model):
     class Meta:
         managed = False
         db_table = 'aflevering'
+        verbose_name_plural = "Aflevering"
 
 
 class AuthGroup(models.Model):
@@ -30,6 +32,7 @@ class AuthGroup(models.Model):
     class Meta:
         managed = False
         db_table = 'auth_group'
+        verbose_name_plural = "AuthGroup"
 
 
 class AuthGroupPermissions(models.Model):
@@ -41,6 +44,7 @@ class AuthGroupPermissions(models.Model):
         managed = False
         db_table = 'auth_group_permissions'
         unique_together = (('group', 'permission'),)
+        verbose_name_plural = "AuthGroupPermission"
 
 
 class AuthPermission(models.Model):
@@ -52,6 +56,7 @@ class AuthPermission(models.Model):
         managed = False
         db_table = 'auth_permission'
         unique_together = (('content_type', 'codename'),)
+        verbose_name_plural = "AuthPermission"
 
 
 class AuthUser(models.Model):
@@ -69,6 +74,7 @@ class AuthUser(models.Model):
     class Meta:
         managed = False
         db_table = 'auth_user'
+        verbose_name_plural = "AuthUser"
 
 
 class AuthUserGroups(models.Model):
@@ -80,6 +86,7 @@ class AuthUserGroups(models.Model):
         managed = False
         db_table = 'auth_user_groups'
         unique_together = (('user', 'group'),)
+        verbose_name_plural = "AuthUserGroups"
 
 
 class AuthUserUserPermissions(models.Model):
@@ -91,6 +98,7 @@ class AuthUserUserPermissions(models.Model):
         managed = False
         db_table = 'auth_user_user_permissions'
         unique_together = (('user', 'permission'),)
+        verbose_name_plural = "AuthUserUserPermissions"
 
 
 class DjangoAdminLog(models.Model):
@@ -126,6 +134,8 @@ class DjangoMigrations(models.Model):
     class Meta:
         managed = False
         db_table = 'django_migrations'
+        verbose_name_plural = "DjangoMigrations"
+        
 
 
 class DjangoSession(models.Model):
@@ -160,6 +170,7 @@ class Klant(models.Model):
     class Meta:
         managed = False
         db_table = 'klant'
+        verbose_name_plural = "Klant"
 
 
 class Seizoen(models.Model):
@@ -172,6 +183,7 @@ class Seizoen(models.Model):
     class Meta:
         managed = False
         db_table = 'seizoen'
+        verbose_name_plural = "Seizoen"
 
 
 class Serie(models.Model):
@@ -208,6 +220,7 @@ class Stream(models.Model):
     class Meta:
         managed = False
         db_table = 'stream'
+        verbose_name_plural = "Stream"
 
 
 class Users(models.Model):
@@ -218,3 +231,4 @@ class Users(models.Model):
     class Meta:
         managed = False
         db_table = 'users'
+        verbose_name_plural = "Users"
