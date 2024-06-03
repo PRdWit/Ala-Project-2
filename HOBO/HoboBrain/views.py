@@ -6,7 +6,7 @@ from HoboBrain.models import Serie, Klant, Genre, Abonnement, Aflevering, Seizoe
 from django.db.models import Q
 from django.contrib import messages
 from django.db import connection
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.contrib.auth.views import LogoutView
 from HoboBrain.forms import RegistrationForm
 import hashlib
@@ -183,6 +183,18 @@ def serie_detail(request, SerieID):
     serie = get_object_or_404(Serie, pk=SerieID)
     imbdlink = serie.imdblink
     image = f'{str(serie.serieid).zfill(5)}.jpg'
+
+    if request.method == "POST":
+        klantid = request.session.get('klant_id')
+        afleveringid = request.POST.get('afleveringid')
+
+        with connection.cursor() as cursor:
+            cursor.execute(
+                "INSERT INTO stream (klantid, aflid)"
+                "VALUES (%s, %s)",
+                [klantid ,afleveringid]
+            )
+        return redirect("homepage")
 
     with connection.cursor() as cursor:
         cursor.execute(

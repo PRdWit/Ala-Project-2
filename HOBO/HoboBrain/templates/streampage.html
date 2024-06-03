@@ -20,9 +20,10 @@
                 {% endfor %}
             </section>
             <br><br>
-            <form>
-                <p id="currentEpi"></p>
-                <input type="text" value="" id="displayEpi" disabled>
+            <form method="POST">
+                {% csrf_token %}
+                <label for="afleveringid" id="currentEpi"></label>
+                <input type="hidden" id="displayEpi" name="afleveringid">
                 <button type="submit" id="play"><i class="fa-solid fa-play"></i> Play</button>
             </form>
         </section>
