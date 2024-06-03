@@ -175,10 +175,6 @@ def logout(request):
     return redirect('inloggen')
 
 
-# Logout view
-#class CustomLogoutView(LogoutView):
-    #next_page = reverse_lazy("login")
-
 def serie_detail(request, SerieID):
     serie = get_object_or_404(Serie, pk=SerieID)
     imbdlink = serie.imdblink
