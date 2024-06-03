@@ -41,12 +41,21 @@ main {
                 }
             }
 
-            #play {
-                background-color: $lime;
-                color: $dark;
-                text-decoration: none;
-                padding: 7px 17px;
-                font-size: 26px;
+            form {
+                input {
+                    background-color: #44444400;
+                    color: #44444400;
+                    width: 0;
+                    border: none;
+                }
+
+                #play {
+                    background-color: $lime;
+                    color: $dark;
+                    text-decoration: none;
+                    padding: 7px 17px;
+                    font-size: 26px;
+                }
             }
         }
 
@@ -84,6 +93,7 @@ main {
                     width: 20vw;
                     margin-right: 10px;
                     text-align: center;
+                    pointer-events: auto !important;
 
                     img {
                         width: 20vw;
