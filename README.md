@@ -1,5 +1,5 @@
 # Ala-Project-2
-ingelogd checks, need to change the way it authenticates
+<!--ingelogd checks, need to change the way it authenticates-->
 home - laatst gekeken series
 History - tabellen, kijkgeschiedenis, etc etc etc
 <!-- details - styling -->
