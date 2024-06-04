@@ -24,16 +24,9 @@
             <h3>Recently Watched</h3>
             <div class="carousel">
                 <div class="carousel-inner" id="carousel-inner">
-                    <div class="carousel-item">Slide 1</div>
-                    <div class="carousel-item">Slide 2</div>
-                    <div class="carousel-item">Slide 3</div>
-                    <div class="carousel-item">Slide 4</div>
-                    <div class="carousel-item">Slide 5</div>
-                    <div class="carousel-item">Slide 6</div>
-                    <div class="carousel-item">Slide 7</div>
-                    <div class="carousel-item">Slide 8</div>
-                    <div class="carousel-item">Slide 9</div>
-                    <div class="carousel-item">Slide 10</div>
+                    {% for item in user_streams_with_images %}
+                    <a href="{% url 'serie_detail' item.serie.serieid %}"><img class="carousel-item carousel-trending" src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="Image for {{ item.serie.serietitel }}"></a>
+                    {% endfor %}
                 </div>
                 <div class="shadow"></div>
                 <div class="carousel-controls">

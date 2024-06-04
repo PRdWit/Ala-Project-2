@@ -17,6 +17,14 @@ def homepage(request):
     active_series = Serie.objects.filter(actief=True)
     trending_series = Serie.objects.filter(trending=True)
     editor_series = Serie.objects.filter(editorpick=True)
+    # user_streams = Stream.objects.filter(klantid=11052).select_related('aflid__seizid__serie')
+    with connection.cursor() as cursor:
+            cursor.execute("SELECT DISTINCT serie.SerieID, serie.SerieTitel FROM stream RIGHT JOIN aflevering ON stream.AflID = aflevering.AfleveringID RIGHT JOIN seizoen ON aflevering.SeizID = seizoen.SeizoenID RIGHT JOIN serie ON seizoen.SerieID = serie.SerieID WHERE KlantID = 11052;")
+            user_streams = cursor.fetchall()
+
+    user_streams_dicts = [
+        {'serieid': row[0], 'serietitel': row[1]} for row in user_streams
+    ]
 
     series_with_images = [
         {'serie': serie, 'image_name': f'{str(serie.serieid).zfill(5)}.jpg'}
@@ -33,10 +41,16 @@ def homepage(request):
         for serie in editor_series
     ]
 
+    user_streams_with_images = [
+        {'serie': serie, 'image_name': f'{str(serie["serieid"]).zfill(5)}.jpg'}
+        for serie in user_streams_dicts
+    ]
+
     context = {
         'series_with_images': series_with_images,
         'trending_series_with_images' : trending_series_with_images,
-        'editor_series_with_images' : editor_series_with_images
+        'editor_series_with_images' : editor_series_with_images,
+        'user_streams_with_images' : user_streams_with_images
     }
 
     return render(request, "homepage.html", context)
