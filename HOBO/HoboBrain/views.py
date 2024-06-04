@@ -123,7 +123,7 @@ def search(request):
 
 
 def history(request):
-    queryset = Stream.objects.all()
+    queryset = Stream.objects.all().filter(klantid = request.session.get('klant_id'))
     table = streamTable(queryset)
     RequestConfig(request).configure(table)
 

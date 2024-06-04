@@ -5,3 +5,4 @@ class streamTable(tables.Table):
     class Meta:
         model = Stream
         template_name = "django_tables2/table.html"
+        fields = ('aflid', 'd_start', 'd_eind')
