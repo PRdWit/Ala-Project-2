@@ -199,7 +199,11 @@ def serie_detail(request, SerieID):
         klantid = request.session.get('klant_id')
         afleveringid = request.POST.get('afleveringid')
         starttime = datetime.now()
-        duration = timedelta(minutes=30)
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT aflevering.Duur FROM stream RIGHT JOIN aflevering ON stream.AflID = aflevering.AfleveringID WHERE aflevering.AfleveringID = %s", [afleveringid])
+            aflduration = cursor.fetchone()
+
+        duration = timedelta(minutes = aflduration[0])
         endtime = starttime+duration
 
         with connection.cursor() as cursor:
@@ -220,8 +224,6 @@ def serie_detail(request, SerieID):
         seizoenen = Seizoen.objects.filter(serieid=SerieID).prefetch_related('aflevering_set')
 
         # afleveringen = Aflevering.objects.filter(seizid_id=SerieID)
-
-
     context = {
         'serie': serie,
         'imbdlink': imbdlink,
