@@ -9,6 +9,7 @@ from django.db import connection
 from django.urls import reverse_lazy, reverse
 from django.contrib.auth.views import LogoutView
 from HoboBrain.forms import RegistrationForm
+from datetime import datetime, timedelta
 import hashlib
 
 
@@ -183,12 +184,15 @@ def serie_detail(request, SerieID):
     if request.method == "POST":
         klantid = request.session.get('klant_id')
         afleveringid = request.POST.get('afleveringid')
+        starttime = datetime.now()
+        duration = timedelta(minutes=30)
+        endtime = starttime+duration
 
         with connection.cursor() as cursor:
             cursor.execute(
-                "INSERT INTO stream (klantid, aflid)"
-                "VALUES (%s, %s)",
-                [klantid ,afleveringid]
+                "INSERT INTO stream (klantid, aflid, d_start, d_eind)"
+                "VALUES (%s, %s, %s, %s)",
+                [klantid ,afleveringid, starttime, endtime]
             )
         return redirect("homepage")
 
