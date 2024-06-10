@@ -123,11 +123,41 @@ def search(request):
 
 
 def history(request):
-    queryset = Stream.objects.all().filter(klantid = request.session.get('klant_id'))
-    table = streamTable(queryset)
-    RequestConfig(request).configure(table)
+    klant_id = request.session.get('klant_id')
 
-    return render(request, "history.html", {"table": table})
+    # First query
+    query1 = """
+        SELECT DATE(d_start) AS day,
+               SEC_TO_TIME(SUM(TIMESTAMPDIFF(SECOND, d_start, d_eind))) AS total_time 
+        FROM stream 
+        WHERE KlantID = %s 
+        GROUP BY DATE(d_start);
+    """
+    
+    # Second query
+    query2 = """
+        SELECT serie.SerieTitel,
+               SEC_TO_TIME(SUM(aflevering.duur)) AS total 
+        FROM stream 
+        RIGHT JOIN aflevering ON stream.AflID = aflevering.AfleveringID 
+        RIGHT JOIN seizoen ON aflevering.SeizID = seizoen.SeizoenID 
+        RIGHT JOIN serie ON seizoen.SerieID = serie.SerieID 
+        WHERE stream.KlantID = %s 
+        GROUP BY serie.SerieTitel;
+    """
+
+    with connection.cursor() as cursor:
+        cursor.execute(query1, [klant_id])
+        results1 = cursor.fetchall()
+        
+        cursor.execute(query2, [klant_id])
+        results2 = cursor.fetchall()
+
+    # Convert results to list of dictionaries
+    data1 = [{'day': row[0], 'total_time': str(row[1])} for row in results1]
+    data2 = [{'serie_title': row[0], 'total': str(row[1])} for row in results2]
+
+    return render(request, "history.html", {"data1": data1, "data2": data2})
 
 def registreren(request): 
     if request.method == "POST":
