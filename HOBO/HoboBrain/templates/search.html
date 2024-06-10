@@ -17,7 +17,7 @@
 
 <ul>
     {% for item in results_with_images %}
-        <a href="{% url 'serie_detail' item.serie.serieid %}"><img  src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="{{ item.serie.serietitel }}"></a>
+        {% if request.session.klant_id %}<a href="{% url 'serie_detail' item.serie.serieid %}">{% endif %}<img  src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="{{ item.serie.serietitel }}">{% if request.session.klant_id %}</a>{% endif %}
     {% empty %}
         <p>No results found.</p>
     {% endfor %}

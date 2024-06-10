@@ -20,23 +20,16 @@ main {
         display: flex;
         align-items: end;
         gap: 10px;
-
-        button {
+    
+        #info {
+            background-color: $dark;
+            color: $lime;
             font-family: $parafont;
             font-size: 20px;
             border: none;
             padding: 10px 15px;
             margin: 0 0 10px 10px;
-
-            &#play {
-                background-color: $lime;
-                color: $dark;
-            }
-    
-            &#info {
-                background-color: $dark;
-                color: $lime;
-            }
+            text-decoration: none;
         }
     }
 
@@ -57,10 +50,10 @@ main {
                     display: flex;
                     transition: transform 0.5s ease-in-out;
                     padding: 0 10px;
+                    gap: 10px;
 
                     a {
                         width: 12vw;
-                        margin-right: 10px;
                         pointer-events: auto !important;
                         
                         .carousel-item {

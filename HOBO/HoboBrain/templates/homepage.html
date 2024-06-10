@@ -14,8 +14,7 @@
 <script src="{% static './js-script/index.js' %}" defer></script>
 
 <section id="top-section">
-    <button id="play"><i class="fa-solid fa-play"></i> Play</button>
-    <button id="info"><i class="fa-solid fa-info"></i> More Info</button>
+    {% if request.session.klant_id %}<a id="info" href="{% url 'serie_detail' 493 %}"><i class="fa-solid fa-info"></i> More Info</a>{% endif %}
 </section>
 <section id="bottom-section">
     {% if request.session.klant_id %}
@@ -41,7 +40,7 @@
         <div class="carousel">
             <div class="carousel-inner" id="carousel-inner2">
                 {% for item in trending_series_with_images %}
-                    <a href="{% url 'serie_detail' item.serie.serieid %}"><img class="carousel-item carousel-trending" src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="Image for {{ item.serie.serietitel }}"></a>
+                {% if request.session.klant_id %}<a href="{% url 'serie_detail' item.serie.serieid %}">{% endif %}<img class="carousel-item carousel-trending" src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="Image for {{ item.serie.serietitel }}">{% if request.session.klant_id %}</a>{% endif %}
                 {% endfor %}
             </div>
             <div class="shadow"></div>
@@ -56,7 +55,7 @@
         <div class="carousel">
             <div class="carousel-inner" id="carousel-inner3">
                 {% for item in editor_series_with_images %}
-                <a href="{% url 'serie_detail' item.serie.serieid %}"><img class="carousel-item" src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="Image for {{ item.serie.serietitel }}"></a>
+                {% if request.session.klant_id %}<a href="{% url 'serie_detail' item.serie.serieid %}">{% endif %}<img class="carousel-item" src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="Image for {{ item.serie.serietitel }}">{% if request.session.klant_id %}</a>{% endif %}
                 {% endfor %}
             </div>
             <div class="shadow"></div>

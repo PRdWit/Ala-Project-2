@@ -42,11 +42,9 @@ main {
             }
 
             form {
-                input {
-                    // background-color: #44444400;
-                    // color: #44444400;
-                    // width: 0;
-                    // border: none;
+                label {
+                    font-size: 20px;
+                    margin-right: 10px;
                 }
 
                 #play {
@@ -55,6 +53,7 @@ main {
                     text-decoration: none;
                     padding: 7px 17px;
                     font-size: 26px;
+                    border: none;
                 }
             }
         }
