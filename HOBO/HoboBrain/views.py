@@ -12,14 +12,16 @@ from HoboBrain.forms import RegistrationForm
 from datetime import datetime, timedelta
 import hashlib
 
-
+# Handles the request to display the homepage. It retrieves data for active, trending, and editor's pick series. 
+# It also retrieves the series the user has streamed and adds image filenames to the series data to render on the homepage.
 def homepage(request):
+    klant_id = request.session.get('klant_id')
     active_series = Serie.objects.filter(actief=True)
     trending_series = Serie.objects.filter(trending=True)
     editor_series = Serie.objects.filter(editorpick=True)
-    # user_streams = Stream.objects.filter(klantid=11052).select_related('aflid__seizid__serie')
+
     with connection.cursor() as cursor:
-            cursor.execute("SELECT DISTINCT serie.SerieID, serie.SerieTitel FROM stream RIGHT JOIN aflevering ON stream.AflID = aflevering.AfleveringID RIGHT JOIN seizoen ON aflevering.SeizID = seizoen.SeizoenID RIGHT JOIN serie ON seizoen.SerieID = serie.SerieID WHERE KlantID = 11052;")
+            cursor.execute("SELECT DISTINCT serie.SerieID, serie.SerieTitel FROM stream RIGHT JOIN aflevering ON stream.AflID = aflevering.AfleveringID RIGHT JOIN seizoen ON aflevering.SeizID = seizoen.SeizoenID RIGHT JOIN serie ON seizoen.SerieID = serie.SerieID WHERE KlantID = %s;", [klant_id])
             user_streams = cursor.fetchall()
 
     user_streams_dicts = [
@@ -55,6 +57,9 @@ def homepage(request):
 
     return render(request, "homepage.html", context)
 
+# Handles profile-related requests, such as updating user information. 
+# If the request method is POST, it updates user information in the database. 
+# Otherwise, it retrieves user information and renders the profile page with user data and options for updating information.
 def profile(request):
     klant_id = request.session.get('klant_id')
 
@@ -101,7 +106,9 @@ def profile(request):
             "genres": genres,
             "aboIDs": aboIDs
         })
-
+    
+# Handles the search functionality. It retrieves the search term from the request's GET parameters. 
+# Then, it queries the database for series matching the search term, if provided. 
 def search(request):
     search_term = request.GET.get('query', '')
 
@@ -125,7 +132,6 @@ def search(request):
 def history(request):
     klant_id = request.session.get('klant_id')
 
-    # First query
     query1 = """
         SELECT DATE(d_start) AS day,
                SEC_TO_TIME(SUM(TIMESTAMPDIFF(SECOND, d_start, d_eind))) AS total_time 
@@ -134,7 +140,6 @@ def history(request):
         GROUP BY DATE(d_start);
     """
     
-    # Second query
     query2 = """
         SELECT serie.SerieTitel,
                SEC_TO_TIME(SUM(aflevering.duur)) AS total 
@@ -153,12 +158,13 @@ def history(request):
         cursor.execute(query2, [klant_id])
         results2 = cursor.fetchall()
 
-    # Convert results to list of dictionaries
     data1 = [{'day': row[0], 'total_time': str(row[1])} for row in results1]
     data2 = [{'serie_title': row[0], 'total': str(row[1])} for row in results2]
 
     return render(request, "history.html", {"data1": data1, "data2": data2})
 
+# Handles the user's viewing history. It retrieves the user's ID from the session. 
+# Then, it executes two SQL queries to gather data about the user's streaming history.
 def registreren(request): 
     if request.method == "POST":
         voornaam = request.POST.get('voornaam')
@@ -187,6 +193,7 @@ def registreren(request):
 
     return render(request, "registreren.html", {"form": form, "genres": genres, "aboIDs": aboIDs})
 
+# Manages the user login functionality. 
 def inloggen(request):
     if request.method == 'POST':
         voornaam = request.POST.get('username')
@@ -205,6 +212,10 @@ def inloggen(request):
         return render(request, 'inloggen.html')
     
 
+# Decorator function to enforce user authentication. 
+# It checks if the user is logged in by verifying the presence of 'klant_id' in the session. 
+# If not, it redirects the user to the login page. 
+# Otherwise, it allows access to the requested view function.
 def custom_login_required(view_func):
     def _wrapped_view_func(request, *args, **kwargs):
         if 'klant_id' not in request.session:
@@ -212,6 +223,7 @@ def custom_login_required(view_func):
         return view_func(request, *args, **kwargs)
     return _wrapped_view_func
 
+# Handles user logout functionality. 
 def logout(request):
     if 'klant_id' in request.session:
         del request.session['klant_id']
@@ -219,12 +231,13 @@ def logout(request):
         del request.session['klant_voornaam']
     return redirect('inloggen')
 
-
+# Retrieves the details of a specific TV series based on the provided SerieID. 
 def serie_detail(request, SerieID):
     serie = get_object_or_404(Serie, pk=SerieID)
     imbdlink = serie.imdblink
     image = f'{str(serie.serieid).zfill(5)}.jpg'
 
+# It retrieves the necessary data from the request and inserts a new stream record into the database.
     if request.method == "POST":
         klantid = request.session.get('klant_id')
         afleveringid = request.POST.get('afleveringid')
@@ -243,7 +256,8 @@ def serie_detail(request, SerieID):
                 [klantid ,afleveringid, starttime, endtime]
             )
         return redirect("homepage")
-
+    
+    # Retrieves genre information and related seasons of the series from the database.
     with connection.cursor() as cursor:
         cursor.execute(
             "SELECT genre.GenreNaam FROM genre INNER JOIN serie_genre ON genre.GenreID = serie_genre.GenreID WHERE serie_genre.SerieID = %s;",
@@ -253,7 +267,6 @@ def serie_detail(request, SerieID):
 
         seizoenen = Seizoen.objects.filter(serieid=SerieID).prefetch_related('aflevering_set')
 
-        # afleveringen = Aflevering.objects.filter(seizid_id=SerieID)
     context = {
         'serie': serie,
         'imbdlink': imbdlink,
