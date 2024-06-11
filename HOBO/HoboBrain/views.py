@@ -14,12 +14,13 @@ import hashlib
 
 
 def homepage(request):
+    klant_id = request.session.get('klant_id')
     active_series = Serie.objects.filter(actief=True)
     trending_series = Serie.objects.filter(trending=True)
     editor_series = Serie.objects.filter(editorpick=True)
     # user_streams = Stream.objects.filter(klantid=11052).select_related('aflid__seizid__serie')
     with connection.cursor() as cursor:
-            cursor.execute("SELECT DISTINCT serie.SerieID, serie.SerieTitel FROM stream RIGHT JOIN aflevering ON stream.AflID = aflevering.AfleveringID RIGHT JOIN seizoen ON aflevering.SeizID = seizoen.SeizoenID RIGHT JOIN serie ON seizoen.SerieID = serie.SerieID WHERE KlantID = 11052;")
+            cursor.execute("SELECT DISTINCT serie.SerieID, serie.SerieTitel FROM stream RIGHT JOIN aflevering ON stream.AflID = aflevering.AfleveringID RIGHT JOIN seizoen ON aflevering.SeizID = seizoen.SeizoenID RIGHT JOIN serie ON seizoen.SerieID = serie.SerieID WHERE KlantID = %s;", [klant_id])
             user_streams = cursor.fetchall()
 
     user_streams_dicts = [
