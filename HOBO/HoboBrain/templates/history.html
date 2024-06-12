@@ -14,14 +14,15 @@
 {% load django_tables2 %}
     <h1>History</h1>
     <section id="mainContent">
+        {% if data1 %}
         <section id="timeDay">
             <h2>Time Spent Watching per Day</h2>
             <table>
                 <thead>
-                    <tr>
-                        <th>Day</th>
-                        <th>Time</th>
-                    </tr>
+                        <tr>
+                            <th>Day</th>
+                            <th>Time</th>
+                        </tr>
                 </thead>
                 <tbody>
                     {% for entry in data1 %}
@@ -52,5 +53,8 @@
                 </tbody>
             </table>
         </section>
+        {% else %}
+        <p>You haven't watched anything yet! Start watching to see you history.</p>
+        {% endif %}
     </section>
 {% endblock %}

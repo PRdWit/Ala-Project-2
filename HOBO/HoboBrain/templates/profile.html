@@ -35,8 +35,8 @@
 
                 <label for="genre">Genre Aanpassen:</label><br>
                 <select id="genre" name="genre" required>
-                    {% for genre in genres %}
-                        <option value="{{ genre.genreid }}" {% if genre.genreid == genre %}selected{% endif %}>{{ genre.genrenaam }}</option>
+                    {% for genreItem in genres %}
+                        <option value="{{ genreItem.genrenaam }}" {% if genreItem.genrenaam == genre %}selected{% endif %}>{{ genreItem.genrenaam }}</option>
                     {% endfor %}
                 </select><br><br>
             </section>

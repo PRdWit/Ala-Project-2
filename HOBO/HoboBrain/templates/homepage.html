@@ -18,22 +18,24 @@
 </section>
 <section id="bottom-section">
     {% if request.session.klant_id %}
-        <script src="{% static './js-script/recentCar.js' %}" defer></script>
-        <section id="Recent">
-            <h3>Recently Watched</h3>
-            <div class="carousel">
-                <div class="carousel-inner" id="carousel-inner">
-                    {% for item in user_streams_with_images %}
-                    <a href="{% url 'serie_detail' item.serie.serieid %}"><img class="carousel-item carousel-trending" src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="Image for {{ item.serie.serietitel }}"></a>
-                    {% endfor %}
+        {% if user_streams_with_images %}
+            <script src="{% static './js-script/recentCar.js' %}" defer></script>
+            <section id="Recent">
+                <h3>Recently Watched</h3>
+                <div class="carousel">
+                    <div class="carousel-inner" id="carousel-inner">
+                        {% for item in user_streams_with_images %}
+                        <a href="{% url 'serie_detail' item.serie.serieid %}"><img class="carousel-item carousel-trending" src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="Image for {{ item.serie.serietitel }}"></a>
+                        {% endfor %}
+                    </div>
+                    <div class="shadow"></div>
+                    <div class="carousel-controls">
+                        <a onclick="carouselRecent(-1)"><i class="fa-solid fa-angle-left"></i></a>
+                        <a onclick="carouselRecent(1)"><i class="fa-solid fa-angle-right"></i></a>
+                    </div>
                 </div>
-                <div class="shadow"></div>
-                <div class="carousel-controls">
-                    <a onclick="carouselRecent(-1)"><i class="fa-solid fa-angle-left"></i></a>
-                    <a onclick="carouselRecent(1)"><i class="fa-solid fa-angle-right"></i></a>
-                </div>
-            </div>
-        </section>
+            </section>
+        {% endif %}
     {% endif %}
     <section id="Trending">
         <h3>Trending</h3>
