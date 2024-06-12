@@ -14,17 +14,38 @@ main {
 
     #top {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+
+        @media screen and (max-width: 767px) {
+            grid-template-areas: "img" "details";
+        }
+
+        @media screen and (min-width: 767px) {
+            grid-template-areas: "details img";
+            grid-template-columns: 1fr 1fr;
+        }
 
         #details {
             padding: 10% 30px;
+            grid-area: details;
 
-            h1 {
-                font-size: 48px;
+            @media screen and (max-width: 767px) {
+                h1 {
+                    font-size: 38px;
+                }
+
+                p {
+                    font-size: 18px
+                }
             }
 
-            p {
-                font-size: 22px;
+            @media screen and (min-width: 767px) {
+                h1 {
+                    font-size: 48px;
+                }
+
+                p {
+                    font-size: 22px
+                }
             }
 
             #genres {
@@ -61,6 +82,18 @@ main {
         #idkright {
             display: flex;
             justify-content: center;
+            grid-area: img;
+
+            @media screen and (max-width: 767px) {
+                img {
+                    width: 50%;
+                }
+            }
+            @media screen and (max-width: 500px) {
+                img {
+                    width: 70%;
+                }
+            }
         }
     }
     #bottom {
@@ -89,17 +122,34 @@ main {
                 padding: 0 10px;
 
                 .episode {
-                    width: 20vw;
                     margin-right: 10px;
                     text-align: center;
                     pointer-events: auto !important;
 
-                    img {
-                        width: 20vw;
+                    @media screen and (max-width: 600px) {
+                        width: 30vw;
+
+                        img {
+                            width: 30vw;
+                        }
+
+                        p {
+                            font-size: 16px;
+                            font-weight: bold;
+                        }
                     }
-                    p {
-                        font-size: 22px;
-                        font-weight: bold;
+
+                    @media screen and (min-width: 600px) {
+                        width: 20vw;
+
+                        img {
+                            width: 20vw;
+                        }
+
+                        p {
+                            font-size: 22px;
+                            font-weight: bold;
+                        }
                     }
                 }
             }

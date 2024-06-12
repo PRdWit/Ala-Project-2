@@ -19,6 +19,26 @@ main {
     }
 
     form {
+        @media screen and (max-width: 500px) {
+            input { width: 80%;}
+            select { width: 82%; }
+        }
+
+        @media screen and (min-width: 500px) and (max-width: 767px) {
+            input { width: 50%; }
+            select { width: 51.5%; }
+        }
+
+        @media screen and (min-width: 767px) and (max-width: 1024px) {
+            input { width: 30%; }
+            select { width: 31%; }
+        }
+
+        @media screen and (min-width: 1024px) {
+            input { width: 25%; }
+            select { width: 25.5%; }
+        }
+
         p {
             display:flex;
             flex-direction: column;
@@ -35,7 +55,6 @@ main {
             font-family: $parafont;
             font-size: 16px;
             padding: 3px 5px;
-            width: 15%;
         }
 
         button {
@@ -56,7 +75,6 @@ main {
             font-family: $parafont;
             border: none;
             font-size: 16px;
-            width: 15.5%;
             padding: 3px 5px;
         }
     }

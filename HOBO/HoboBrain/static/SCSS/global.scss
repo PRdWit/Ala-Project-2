@@ -29,17 +29,39 @@ body {
         nav {
             display: flex;
             align-items: center;
-            gap: 20px;
-            
-            #logo {
-                width: 150px;
+
+            @media screen and (max-width: 767px) {
+                gap: 10px;
+
+                #content {
+                    display: none;
+                }
+
+                #logo {
+                    width: 100px;
+                }
+
+                a {
+                    font-size: 16px;
+                }
+            }
+
+            @media screen and (min-width: 767px) {
+                gap: 20px;
+
+                #logo {
+                    width: 150px;
+                }
+
+                a {
+                    font-size: 20px;
+                }
             }
 
             a {
                 color: $white;
                 text-decoration: none;
                 font-family: $parafont;
-                font-size: 20px;
 
                 &:hover {
                     color: $blue;
@@ -50,10 +72,33 @@ body {
         #navR {
             display: flex;
             align-items: center;
-            gap: 20px;
 
-            i {
-                font-size: 36px;
+            @media screen and (max-width: 767px) {
+                gap: 10px;
+
+                i {
+                    font-size: 28px;
+                }
+
+                a {
+                    p {
+                        font-size: 16px;
+                    }
+                }
+            }
+
+            @media screen and (min-width: 767px) {
+                gap: 20px;
+
+                i {
+                    font-size: 36px;
+                }
+
+                a {
+                    p {
+                        font-size: 20px;
+                    }
+                }
             }
 
             a {
@@ -68,7 +113,6 @@ body {
                 }
 
                 p {
-                    font-size: 20px;
                     margin: 0;
                 }
             }
@@ -99,9 +143,16 @@ body {
         color: $dark;
         padding: 10px;
 
+        @media screen and (max-width: 767px) {
+            p { font-size: 16px;}
+        }
+
+        @media screen and (min-width: 767px) {
+            p { font-size: 20px;}
+        }
+
         p {
             margin: 0;
-            font-size: 20px;
         }
     }
 }

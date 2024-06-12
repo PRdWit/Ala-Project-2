@@ -25,7 +25,7 @@
         <nav>
             <img src="{% static "Pics/HOBO_logo.png" %}" alt="Logo" id="logo">
             <a href="{% url 'homepage' %}">HOME</a>
-            <a href="{% url 'search' %}">CONTENT</a>
+            <a href="{% url 'search' %}" id="content">CONTENT</a>
             {% if request.session.klant_id %}
                 <a href="{% url 'history' %}">HISTORY</a>
             {% endif %}
