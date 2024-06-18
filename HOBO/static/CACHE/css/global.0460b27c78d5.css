@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap");
+@font-face {
+  font-family: NeutraText;
+  src: url(/static/fonts/NeutraText-BoldAlt.otf); }
+
+/* line 12, HoboBrain/static/SCSS/global.scss */
+a {
+  font-family: NeutraText; }
+
+/* line 16, HoboBrain/static/SCSS/global.scss */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%; }
+
+/* line 22, HoboBrain/static/SCSS/global.scss */
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease; }
+
+/* line 27, HoboBrain/static/SCSS/global.scss */
+.carousel-item {
+  flex: 0 0 100%;
+  text-align: center; }
+
+/* line 32, HoboBrain/static/SCSS/global.scss */
+.carousel-item img {
+  max-width: 100%; }
+
+/* line 36, HoboBrain/static/SCSS/global.scss */
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer; }
+
+/* line 47, HoboBrain/static/SCSS/global.scss */
+.carousel-control.prev {
+  left: 10px; }
+
+/* line 51, HoboBrain/static/SCSS/global.scss */
+.carousel-control.next {
+  right: 10px; }

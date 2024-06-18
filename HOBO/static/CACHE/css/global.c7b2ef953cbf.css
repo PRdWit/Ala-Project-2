@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap");
+@font-face {
+  font-family: NeutraText;
+  src: url(/static/fonts/NeutraText-BoldAlt.otf); }
+
+/* line 12, HoboBrain/static/SCSS/global.scss */
+a {
+  font-family: NeutraText; }
+
+/* Basic page styling */
+/* line 16, HoboBrain/static/SCSS/global.scss */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  /* Light gray background */ }
+
+/* line 23, HoboBrain/static/SCSS/global.scss */
+h1, h3 {
+  color: #333;
+  /* Dark gray for text */ }
+
+/* line 27, HoboBrain/static/SCSS/global.scss */
+button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  /* Blue button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; }
+
+/* line 37, HoboBrain/static/SCSS/global.scss */
+button:hover {
+  background-color: #2980b9;
+  /* Darker blue on hover */ }
+
+/* Carousel styling */
+/* line 42, HoboBrain/static/SCSS/global.scss */
+.carousel-outer {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  /* Full width of the container */
+  padding: 10px 0; }
+
+/* line 49, HoboBrain/static/SCSS/global.scss */
+.carousel-inner {
+  display: flex;
+  flex-direction: row;
+  /* Horizontal scrolling */
+  transition: transform 0.5s ease;
+  /* Smooth transition */ }
+
+/* line 55, HoboBrain/static/SCSS/global.scss */
+.carousel-item {
+  flex: 0 0 auto;
+  /* Keep each item fixed in size */
+  width: 150px;
+  /* Set width for each carousel item */
+  margin-right: 10px;
+  /* Space between carousel items */
+  text-align: center;
+  background-color: white;
+  border: 1px solid #ddd;
+  /* Light gray border */
+  border-radius: 5px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow */ }
+
+/* line 66, HoboBrain/static/SCSS/global.scss */
+.carousel-item img {
+  max-width: 100%;
+  /* Ensure images are responsive */
+  border-top-left-radius: 5px;
+  /* Border radius for the image */
+  border-top-right-radius: 5px; }
+
+/* line 72, HoboBrain/static/SCSS/global.scss */
+.carousel-item h3 {
+  font-size: 1em;
+  /* Smaller font for item titles */
+  color: #333;
+  /* Dark gray text */
+  margin: 10px 0; }
+
+/* line 78, HoboBrain/static/SCSS/global.scss */
+.carousel-item p {
+  font-size: 0.9em;
+  /* Slightly smaller text for description */
+  color: #555;
+  /* Medium gray text */
+  padding: 0 10px; }
+
+/* Carousel controls */
+/* line 85, HoboBrain/static/SCSS/global.scss */
+.carousel-outer button {
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent background */
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  /* Circular buttons */
+  cursor: pointer; }
+
+/* line 96, HoboBrain/static/SCSS/global.scss */
+.carousel-outer button:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Darker on hover */ }
+
+/* line 100, HoboBrain/static/SCSS/global.scss */
+.carousel-outer button.left {
+  left: 10px;
+  /* Position for the left control */ }
+
+/* line 104, HoboBrain/static/SCSS/global.scss */
+.carousel-outer button.right {
+  right: 10px;
+  /* Position for the right control */ }
