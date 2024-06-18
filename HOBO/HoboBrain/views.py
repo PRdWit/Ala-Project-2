@@ -255,7 +255,7 @@ def serie_detail(request, SerieID):
                 "VALUES (%s, %s, %s, %s)",
                 [klantid ,afleveringid, starttime, endtime]
             )
-        return redirect("homepage")
+        return redirect("video")
     
     # Retrieves genre information and related seasons of the series from the database.
     with connection.cursor() as cursor:
@@ -275,3 +275,6 @@ def serie_detail(request, SerieID):
         'seasons': seizoenen
     }
     return render(request, 'streampage.html', context)
+
+def video(request):
+    return render(request, "video.html")

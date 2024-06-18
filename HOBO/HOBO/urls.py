@@ -28,5 +28,6 @@ urlpatterns = [
     path('logout/', logout, name="logout"),
     path('profile/', views.profile, name="profile"),
     path('registreren/', registreren, name="registreren"),
-    path('<int:SerieID>/', views.serie_detail, name='serie_detail')
+    path('<int:SerieID>/', views.serie_detail, name='serie_detail'),
+    path("video/", views.video, name="video")
 ]

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %} Video ~ HoBo {% endblock %}
+
+{% block scss %}
+    {% load static %}
+    {% load compress %}
+    {% compress css %}
+            <link rel="stylesheet" href="{%static 'SCSS/video.scss' %}" type="text/x-scss">
+    {% endcompress %}
+{% endblock %}
+
+{% block content %}
+<a href="{% url 'homepage' %}"><i class="fa-solid fa-angle-left"></i></a>
+<div class="video-container">
+    <iframe src="https://www.youtube.com/embed/Y-x0efG1seA?autoplay=1&loop=1&playlist=Y-x0efG1seA&controls=1&modestbranding=1&iv_load_policy=3&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+{% endblock %}
