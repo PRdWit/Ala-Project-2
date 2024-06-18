@@ -193,6 +193,7 @@ class Serie(models.Model):
     actief = models.IntegerField(db_column='Actief', blank=True, null=True)  # Field name made lowercase.
     trending = models.IntegerField(db_column='Trending', blank=True, null=True)
     editorpick = models.IntegerField(db_column='EditorPick', blank=True, null=True)
+    act_imbdlink = models.CharField(db_column='Act_imbdlink', max_length=250, blank=True, null=True)
 
     class Meta:
         managed = False

@@ -128,7 +128,8 @@ def search(request):
 
     return render(request, "search.html", context)
 
-
+# Handles the user's viewing history. It retrieves the user's ID from the session. 
+# Then, it executes two SQL queries to gather data about the user's streaming history.
 def history(request):
     klant_id = request.session.get('klant_id')
 
@@ -163,8 +164,7 @@ def history(request):
 
     return render(request, "history.html", {"data1": data1, "data2": data2})
 
-# Handles the user's viewing history. It retrieves the user's ID from the session. 
-# Then, it executes two SQL queries to gather data about the user's streaming history.
+
 def registreren(request): 
     if request.method == "POST":
         voornaam = request.POST.get('voornaam')
@@ -234,7 +234,9 @@ def logout(request):
 # Retrieves the details of a specific TV series based on the provided SerieID. 
 def serie_detail(request, SerieID):
     serie = get_object_or_404(Serie, pk=SerieID)
+    print(serie.__dict__)
     imbdlink = serie.imdblink
+    act_imbdlink = serie.act_imbdlink
     image = f'{str(serie.serieid).zfill(5)}.jpg'
 
 # It retrieves the necessary data from the request and inserts a new stream record into the database.
@@ -270,6 +272,7 @@ def serie_detail(request, SerieID):
     context = {
         'serie': serie,
         'imbdlink': imbdlink,
+        "act_imbdlink": act_imbdlink,
         'genres': genres,
         'image_name': image,
         'seasons': seizoenen
