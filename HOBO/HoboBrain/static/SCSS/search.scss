@@ -1,0 +1,52 @@
+$lime: #92d051;
+$blue: #5b9bd5;
+$dark: #444444;
+$white: #efefef;
+
+$parafont: "Montserrat", sans-serif;
+$titlefont: NeutraText;
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    #searchbar {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+
+        input {
+            width: 94%;
+            border: none;
+            padding: 10px;
+            font-family: $parafont;
+            font-size: 18px;
+            color: $dark;
+            background-color: $white;
+        }
+    }
+
+    ul {
+        width: 95%;
+        display: grid;
+        gap: 20px;
+        padding: 0;
+
+        @media screen and (max-width: 767px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @media screen and (min-width: 767px) and (max-width: 1014px) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        @media screen and (min-width: 1024px) {
+            grid-template-columns: repeat(6, 1fr);
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+}

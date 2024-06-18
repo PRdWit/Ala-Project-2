@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %} History ~ HoBo {% endblock %}
+
+{% block scss %}
+    {% load static %}
+    {% load compress %}
+    {% compress css %}
+            <link rel="stylesheet" href="{%static 'SCSS/history.scss' %}" type="text/x-scss">
+    {% endcompress %}
+{% endblock %}
+
+{% block content %}
+{% load django_tables2 %}
+    <h1>History</h1>
+    <section id="mainContent">
+        {% if data1 %}
+        <section id="timeDay">
+            <h2>Time Spent Watching per Day</h2>
+            <table>
+                <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Time</th>
+                        </tr>
+                </thead>
+                <tbody>
+                    {% for entry in data1 %}
+                        <tr>
+                            <td>{{ entry.day }}</td>
+                            <td>{{ entry.total_time }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+        <section id="timeSerie">
+            <h2>Time Spent Watching per Serie</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Series</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in data2 %}
+                        <tr>
+                            <td>{{ entry.serie_title }}</td>
+                            <td>{{ entry.total }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+        {% else %}
+        <p>You haven't watched anything yet! Start watching to see you history.</p>
+        {% endif %}
+    </section>
+{% endblock %}

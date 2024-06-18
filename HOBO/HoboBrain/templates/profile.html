@@ -1,0 +1,49 @@
+{% extends "base.html" %} {% block title %} Profile ~ HoBo {% endblock %}
+
+{% block scss %}
+    {% load static %}
+    {% load compress %}
+    {% compress css %}
+            <link rel="stylesheet" href="{% static 'SCSS/profile.scss' %}" type="text/x-scss">
+    {% endcompress %}
+{% endblock %}
+
+{% block content %}
+    <h1>Profile</h1>
+    <h2>Welcome, {{ request.session.voornaam }}!</h2>
+    <form method="POST" action="{% url 'profile' %}">
+        {% csrf_token %}
+        <section id="sections">
+            <section id="pLeft">
+                <label for="voornaam">Username aanpassen:</label><br>
+                <input type="text" id="voornaam" name="voornaam" value="{{ voornaam }}" required><br><br>
+                
+                <label for="email">Email aanpassen:</label><br>
+                <input type="email" id="email" name="email" value="{{ email }}"><br><br>
+                
+                <label for="password">Wachtwoord aanpassen:</label><br>
+                <input type="password" id="password" name="password"><br><br>
+            </section>
+            <section id="pRight">
+                <label for="aboID">Abonnement aanpassen:</label><br>
+                <select id="aboID" name="aboID" required>
+                    <option value="" selected disabled>Select an option</option>
+                    {% for abo in aboIDs %}
+                        <option value="{{ abo.aboid }}" {% if abo.aboid == aboID %}selected{% endif %}>{{ abo.abonaam }}</option>
+                    {% endfor %}
+                </select><br><br>
+
+                <label for="genre">Genre Aanpassen:</label><br>
+                <select id="genre" name="genre" required>
+                    {% for genreItem in genres %}
+                        <option value="{{ genreItem.genrenaam }}" {% if genreItem.genrenaam == genre %}selected{% endif %}>{{ genreItem.genrenaam }}</option>
+                    {% endfor %}
+                </select><br><br>
+            </section>
+        </section>
+        <section id="buttons">
+            <button type="submit">Profiel aanpassen</button>
+            <a href="{% url 'logout' %}">Logout</a>
+        </section> 
+    </form>
+{% endblock %}

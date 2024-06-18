@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %} Search ~ HoBo {% endblock %}
+
+{% block scss %}
+    {% load static %}
+    {% load compress %}
+    {% compress css %}
+            <link rel="stylesheet" href="{%static 'SCSS/search.scss' %}" type="text/x-scss">
+    {% endcompress %}
+{% endblock %}
+
+{% block content %}
+<form id="searchbar" method="GET" action="{% url 'search' %}">
+    <input type="text" name="query" placeholder="Search for a series..." value="{{ search_term }}">
+</form>
+
+<ul>
+    {% for item in results_with_images %}
+        {% if request.session.klant_id %}<a href="{% url 'serie_detail' item.serie.serieid %}">{% endif %}<img  src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="{{ item.serie.serietitel }}">{% if request.session.klant_id %}</a>{% endif %}
+    {% empty %}
+        <p>No results found.</p>
+    {% endfor %}
+</ul>
+{% endblock %}

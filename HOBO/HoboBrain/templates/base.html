@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %} HoBo {% endblock %}
+    </title>
+    {% load static %}
+    {% load compress %}
+    {% compress css %}
+        <link rel="stylesheet" href="{%static 'SCSS/global.scss' %}" type="text/x-scss">
+    {% endcompress %}
+
+    {% block scss %}{% endblock %}
+
+    <script src="https://kit.fontawesome.com/9ce9532b81.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="{% static "Pics/HOBO_Beeldmerk.png" %}">
+
+    {% block js %}{% endblock %}
+    
+</head>
+<body>
+    <header> 
+        <nav>
+            <img src="{% static "Pics/HOBO_logo.png" %}" alt="Logo" id="logo">
+            <a href="{% url 'homepage' %}">HOME</a>
+            <a href="{% url 'search' %}" id="content">CONTENT</a>
+            {% if request.session.klant_id %}
+                <a href="{% url 'history' %}">HISTORY</a>
+            {% endif %}
+        </nav>
+        <section id="navR">
+            <a href="{% url 'search' %}">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+            {% if request.session.klant_id %}
+                <a href="{% url 'profile' %}">
+                    <p>{{ request.session.voornaam }}</p>
+                    <i class="fa-solid fa-user" id="profile"></i>
+                </a>
+            {% else %}
+                <a href="{% url 'inloggen' %}">
+                    <p>Inloggen</p>
+                    <i class="fa-solid fa-user" id="profile"></i>
+                </a>
+            {% endif %}
+        </section>
+    </header>
+    <main>
+        {% block content %} {% endblock %}
+    </main>
+    <footer>
+        <p>© 2024 HOBO Media Company, All rights reserved</p>
+    </footer>
+</body>
+</html>

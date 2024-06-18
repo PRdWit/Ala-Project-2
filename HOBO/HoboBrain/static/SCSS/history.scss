@@ -1,0 +1,35 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    #mainContent {
+        width: 100%;
+        display: flex;
+
+        @media screen and (max-width: 767px) {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        @media screen and (min-width: 767px) {
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        section {
+            h2 {
+                font-size: 28px;
+            }
+            table {
+                text-align: left;
+
+                th,td {
+                    padding-right: 50px;
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,71 @@
+{% extends "base.html" %} 
+
+{% block title %} Homepage ~ HoBo {% endblock %}
+
+{% block scss %}
+    {% load static %}
+    {% load compress %}
+    {% compress css %}
+            <link rel="stylesheet" href="{%static 'SCSS/homepage.scss' %}" type="text/x-scss">
+    {% endcompress %}
+{% endblock %}
+
+{% block content %}
+<script src="{% static './js-script/index.js' %}" defer></script>
+
+<section id="top-section">
+    {% if request.session.klant_id %}<a id="info" href="{% url 'serie_detail' 493 %}"><i class="fa-solid fa-info"></i> More Info</a>{% endif %}
+</section>
+<section id="bottom-section">
+    {% if request.session.klant_id %}
+        {% if user_streams_with_images %}
+            <script src="{% static './js-script/recentCar.js' %}" defer></script>
+            <section id="Recent">
+                <h3>Recently Watched</h3>
+                <div class="carousel">
+                    <div class="carousel-inner" id="carousel-inner">
+                        {% for item in user_streams_with_images %}
+                        <a href="{% url 'serie_detail' item.serie.serieid %}"><img class="carousel-item carousel-trending" src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="Image for {{ item.serie.serietitel }}"></a>
+                        {% endfor %}
+                    </div>
+                    <div class="shadow"></div>
+                    <div class="carousel-controls">
+                        <a onclick="carouselRecent(-1)"><i class="fa-solid fa-angle-left"></i></a>
+                        <a onclick="carouselRecent(1)"><i class="fa-solid fa-angle-right"></i></a>
+                    </div>
+                </div>
+            </section>
+        {% endif %}
+    {% endif %}
+    <section id="Trending">
+        <h3>Trending</h3>
+        <div class="carousel">
+            <div class="carousel-inner" id="carousel-inner2">
+                {% for item in trending_series_with_images %}
+                {% if request.session.klant_id %}<a href="{% url 'serie_detail' item.serie.serieid %}">{% endif %}<img class="carousel-item carousel-trending" src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="Image for {{ item.serie.serietitel }}">{% if request.session.klant_id %}</a>{% endif %}
+                {% endfor %}
+            </div>
+            <div class="shadow"></div>
+            <div class="carousel-controls">
+                <a onclick="carouselTrending(-3)"><i class="fa-solid fa-angle-left"></i></a>
+                <a onclick="carouselTrending(3)"><i class="fa-solid fa-angle-right"></i></a>
+            </div>
+        </div>
+    </section>
+    <section id="Editor">
+        <h3>Editor's Pick</h3>
+        <div class="carousel">
+            <div class="carousel-inner" id="carousel-inner3">
+                {% for item in editor_series_with_images %}
+                {% if request.session.klant_id %}<a href="{% url 'serie_detail' item.serie.serieid %}">{% endif %}<img class="carousel-item" src="{% static 'Pics/images/' %}{{ item.image_name }}" alt="Image for {{ item.serie.serietitel }}">{% if request.session.klant_id %}</a>{% endif %}
+                {% endfor %}
+            </div>
+            <div class="shadow"></div>
+            <div class="carousel-controls">
+                <a onclick="carouselEditor(-3)"><i class="fa-solid fa-angle-left"></i></a>
+                <a onclick="carouselEditor(3)"><i class="fa-solid fa-angle-right"></i></a>
+            </div>
+        </div>
+    </section>
+</section>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "base.html" %} {% block title %}Stream Info ~ HoBo {% endblock %}
+
+{% block scss %}
+    {% load static %}
+    {% load compress %}
+    {% compress css %}
+            <link rel="stylesheet" href="{%static 'SCSS/detail.scss' %}" type="text/x-scss">
+    {% endcompress %}
+{% endblock %}
+
+{% block content %}
+    <script src="{% static './js-script/selectEp.js' %}" defer></script>
+    <section id="top">
+        <section id="details">
+            <h1>{{serie.serietitel}}</h1>
+            <p class="desc">{{ imbdlink }}</p>
+            <section id="genres">
+                {% for genre in genres %}
+                    <p class="genre">{{ genre }}</p>
+                {% endfor %}
+            </section>
+            <br><br>
+            <form method="POST">
+                {% csrf_token %}
+                <label for="afleveringid" id="currentEpi"></label>
+                <input type="hidden" id="displayEpi" name="afleveringid">
+                <button type="submit" id="play"><i class="fa-solid fa-play"></i> Play</button>
+            </form>
+        </section>
+        <section id="idkright">
+            <img src="{% static 'Pics/images/' %}{{ image_name }}">
+        </section>
+    </section>
+    <section id="bottom">
+        <h3>Afleveringen</h3>
+        <select id="seizoenen" name="seizoen" onchange="filterepisodes()">
+            {% for season in seasons %}
+            <option value="{{ season.rang }}">Seizoen {{ season.rang }}</option>
+            {% endfor %}
+        </select>
+        <section id="carousel">
+            <section id="afleveringen">
+                {% for season in seasons %}
+                    {% if forloop.first %}
+                        {% for episode in season.aflevering_set.all %}
+                            {% if forloop.first %}
+                                <a class="episode {{ season.rang }}" id="{{ episode.afleveringid }}" onclick="inputEpi('{{ episode.afleveringid }}', '{{ episode.afltitel }}')">
+                                    <img src="{% static 'Pics/images/' %}{{ image_name }}">
+                                    <p>{{ episode.afltitel }}</p>
+                                </a>
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function() {
+                                        inputEpi('{{ episode.afleveringid }}', '{{ episode.afltitel }}');
+                                    });
+                                </script>
+                            {% else %}
+                                <a class="episode {{ season.rang }}" id="{{ episode.afleveringid }}" onclick="inputEpi('{{ episode.afleveringid }}', '{{ episode.afltitel }}')">
+                                    <img src="{% static 'Pics/images/' %}{{ image_name }}">
+                                    <p>{{ episode.afltitel }}</p>
+                                </a>
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        {% for episode in season.aflevering_set.all %}
+                            <a class="episode {{ season.rang }}" id="{{ episode.afleveringid }}" onclick="inputEpi('{{ episode.afleveringid }}', '{{ episode.afltitel }}')">
+                                <img src="{% static 'Pics/images/' %}{{ image_name }}">
+                                <p>{{ episode.afltitel }}</p>
+                            </a>
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            </section>
+            <div class="shadow"></div>
+            <div class="carousel-controls">
+                <a onclick="carouselEpi(-3)"><i class="fa-solid fa-angle-left"></i></a>
+                <a onclick="carouselEpi(3)"><i class="fa-solid fa-angle-right"></i></a>
+            </div>
+        </section>
+    </section>  
+{% endblock %}
+
+{% block js %}
+    <script src="{% static './js-script/seasons.js' %}" defer></script>
+{% endblock %}

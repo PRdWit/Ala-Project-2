@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% block title %}Inloggen ~ HoBo {% endblock %}
+
+{% block scss %}
+    {% load static %}
+    {% load compress %}
+    {% compress css %}
+            <link rel="stylesheet" href="{%static 'SCSS/loginforms.scss' %}" type="text/x-scss">
+    {% endcompress %}
+{% endblock %}
+
+{% block content %}
+    <h1>Inloggen</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+        <button type="submit">Login</button>
+    </form>
+    <p>New to HOBO? <a href="{% url 'registreren' %}">Sign up now!</a></p>
+{% endblock %}

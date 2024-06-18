@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap');
+@font-face {font-family: NeutraText; src: url(../fonts/NeutraText-BoldAlt.otf)}
+
+$lime: #92d051;
+$blue: #5b9bd5;
+$dark: #444444;
+$white: #efefef;
+
+$parafont: "Montserrat", sans-serif;
+$titlefont: NeutraText;
+
+main {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    h1 {
+        font-size: 36px;
+    }
+
+    form {
+        @media screen and (max-width: 500px) {
+            input { width: 80%;}
+            select { width: 82%; }
+        }
+
+        @media screen and (min-width: 500px) and (max-width: 767px) {
+            input { width: 50%; }
+            select { width: 51.5%; }
+        }
+
+        @media screen and (min-width: 767px) and (max-width: 1024px) {
+            input { width: 30%; }
+            select { width: 31%; }
+        }
+
+        @media screen and (min-width: 1024px) {
+            input { width: 25%; }
+            select { width: 25.5%; }
+        }
+
+        p {
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        label {
+            font-size: 18px;
+        }
+
+        input {
+            background-color: $white;
+            border: none;
+            font-family: $parafont;
+            font-size: 16px;
+            padding: 3px 5px;
+        }
+
+        button {
+            background-color: $lime;
+            color: $white;
+            border: none;
+            font-size: 18px;
+            padding: 5px 10px;
+
+            &:hover {
+                background-color: #82b64b;
+                cursor: pointer;
+            }
+        }
+
+        select {
+            background-color: $white;
+            font-family: $parafont;
+            border: none;
+            font-size: 16px;
+            padding: 3px 5px;
+        }
+    }
+
+    p {
+        a {
+            text-decoration: none;
+            color: $white;
+            font-family: $parafont;
+            font-weight: bold;
+        }
+    }
+}

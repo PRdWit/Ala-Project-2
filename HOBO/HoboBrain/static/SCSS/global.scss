@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap');
+@font-face {font-family: NeutraText; src: url(../fonts/NeutraText-BoldAlt.otf)}
+
+$lime: #92d051;
+$blue: #5b9bd5;
+$dark: #444444;
+$white: #efefef;
+
+$parafont: "Montserrat", sans-serif;
+$titlefont: NeutraText;
+
+body {
+    background-color: $dark;
+    color: $white;
+    font-family: $parafont;
+    margin: 0;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    header {
+        display: flex;
+        width: auto;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+
+        nav {
+            display: flex;
+            align-items: center;
+
+            @media screen and (max-width: 767px) {
+                gap: 10px;
+
+                #content {
+                    display: none;
+                }
+
+                #logo {
+                    width: 100px;
+                }
+
+                a {
+                    font-size: 16px;
+                }
+            }
+
+            @media screen and (min-width: 767px) {
+                gap: 20px;
+
+                #logo {
+                    width: 150px;
+                }
+
+                a {
+                    font-size: 20px;
+                }
+            }
+
+            a {
+                color: $white;
+                text-decoration: none;
+                font-family: $parafont;
+
+                &:hover {
+                    color: $blue;
+                }
+            }
+        }
+
+        #navR {
+            display: flex;
+            align-items: center;
+
+            @media screen and (max-width: 767px) {
+                gap: 10px;
+
+                i {
+                    font-size: 28px;
+                }
+
+                a {
+                    p {
+                        font-size: 16px;
+                    }
+                }
+            }
+
+            @media screen and (min-width: 767px) {
+                gap: 20px;
+
+                i {
+                    font-size: 36px;
+                }
+
+                a {
+                    p {
+                        font-size: 20px;
+                    }
+                }
+            }
+
+            a {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                text-decoration: none;
+                color: $white;
+
+                &:hover {
+                    color: $blue;
+                }
+
+                p {
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    main {
+        flex-grow: 1;
+        margin-bottom: 30px;
+
+        h1, h2, h3 {
+            color: $lime;
+            font-family: $titlefont;
+        }
+
+        h3 {
+            font-size: 36px;
+        }
+
+        h1 {
+            font-size: 40px;
+        }
+    }
+
+    footer {
+        background-color: $lime;
+        width: auto;
+        color: $dark;
+        padding: 10px;
+
+        @media screen and (max-width: 767px) {
+            p { font-size: 16px;}
+        }
+
+        @media screen and (min-width: 767px) {
+            p { font-size: 20px;}
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+}
