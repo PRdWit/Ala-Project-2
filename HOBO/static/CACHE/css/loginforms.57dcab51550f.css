@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap");
+@font-face {
+  font-family: NeutraText;
+  src: url(/static/fonts/NeutraText-BoldAlt.otf); }
+
+/* line 12, HoboBrain/static/SCSS/loginforms.scss */
+main {
+  display: flex;
+  flex-direction: column;
+  text-align: center; }
+  /* line 17, HoboBrain/static/SCSS/loginforms.scss */
+  main h1 {
+    font-size: 36px; }
+  /* line 22, HoboBrain/static/SCSS/loginforms.scss */
+  main form p {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+  /* line 28, HoboBrain/static/SCSS/loginforms.scss */
+  main form label {
+    font-size: 18px; }
+  /* line 32, HoboBrain/static/SCSS/loginforms.scss */
+  main form input {
+    background-color: #efefef;
+    border: none;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    padding: 3px 5px;
+    width: 15%; }
+  /* line 41, HoboBrain/static/SCSS/loginforms.scss */
+  main form button {
+    background-color: #92d051;
+    color: #efefef;
+    border: none;
+    font-size: 18px;
+    padding: 5px 10px; }
+    /* line 48, HoboBrain/static/SCSS/loginforms.scss */
+    main form button:hover {
+      background-color: #82b64b;
+      cursor: pointer; }
+  /* line 54, HoboBrain/static/SCSS/loginforms.scss */
+  main form select {
+    background-color: #efefef;
+    font-family: "Montserrat", sans-serif;
+    border: none;
+    font-size: 16px;
+    width: 15.5%;
+    padding: 3px 5px; }
+  /* line 65, HoboBrain/static/SCSS/loginforms.scss */
+  main p a {
+    text-decoration: none;
+    color: #efefef;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold; }

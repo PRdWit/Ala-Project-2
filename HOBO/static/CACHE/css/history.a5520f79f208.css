@@ -1,0 +1,30 @@
+/* line 1, HoboBrain/static/SCSS/history.scss */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  /* line 6, HoboBrain/static/SCSS/history.scss */
+  main #mainContent {
+    width: 100%;
+    display: flex; }
+    @media screen and (max-width: 767px) {
+      /* line 6, HoboBrain/static/SCSS/history.scss */
+      main #mainContent {
+        flex-direction: column;
+        align-items: center;
+        text-align: center; } }
+    @media screen and (min-width: 767px) {
+      /* line 6, HoboBrain/static/SCSS/history.scss */
+      main #mainContent {
+        flex-direction: row;
+        justify-content: space-around; } }
+    /* line 22, HoboBrain/static/SCSS/history.scss */
+    main #mainContent section h2 {
+      font-size: 28px; }
+    /* line 25, HoboBrain/static/SCSS/history.scss */
+    main #mainContent section table {
+      text-align: left; }
+      /* line 28, HoboBrain/static/SCSS/history.scss */
+      main #mainContent section table th, main #mainContent section table td {
+        padding-right: 50px;
+        font-size: 20px; }

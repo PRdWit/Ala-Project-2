@@ -1,0 +1,14 @@
+/* line 10, HoboBrain/static/SCSS/search.scss */
+main #searchbar {
+  display: flex;
+  width: 100%;
+  justify-content: center; }
+  /* line 15, HoboBrain/static/SCSS/search.scss */
+  main #searchbar input {
+    width: 90%;
+    border: none;
+    padding: 10px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    color: #444444;
+    background-color: #efefef; }

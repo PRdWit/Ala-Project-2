@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap");
+@font-face {
+  font-family: NeutraText;
+  src: url(/static/fonts/NeutraText-BoldAlt.otf); }
+
+/* line 13, HoboBrain/static/SCSS/homepage.scss */
+main #top-section {
+  width: 100%;
+  height: 50vh;
+  background-image: url("/static/Pics/covers/00493.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: end;
+  gap: 10px; }
+  /* line 24, HoboBrain/static/SCSS/homepage.scss */
+  main #top-section #info {
+    background-color: #444444;
+    color: #92d051;
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 0 10px 10px;
+    text-decoration: none; }
+
+/* line 38, HoboBrain/static/SCSS/homepage.scss */
+main #bottom-section section h3 {
+  margin-left: 10px;
+  margin-bottom: 20px; }
+
+/* line 43, HoboBrain/static/SCSS/homepage.scss */
+main #bottom-section section .carousel {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center; }
+  /* line 49, HoboBrain/static/SCSS/homepage.scss */
+  main #bottom-section section .carousel .carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    padding: 0 10px;
+    gap: 10px; }
+    /* line 55, HoboBrain/static/SCSS/homepage.scss */
+    main #bottom-section section .carousel .carousel-inner a {
+      pointer-events: auto !important; }
+      @media screen and (max-width: 767px) {
+        /* line 55, HoboBrain/static/SCSS/homepage.scss */
+        main #bottom-section section .carousel .carousel-inner a {
+          width: 30vw; }
+          /* line 61, HoboBrain/static/SCSS/homepage.scss */
+          main #bottom-section section .carousel .carousel-inner a .carousel-item {
+            width: 30vw; } }
+      @media screen and (min-width: 767px) and (max-width: 1014px) {
+        /* line 55, HoboBrain/static/SCSS/homepage.scss */
+        main #bottom-section section .carousel .carousel-inner a {
+          width: 20vw; }
+          /* line 69, HoboBrain/static/SCSS/homepage.scss */
+          main #bottom-section section .carousel .carousel-inner a .carousel-item {
+            width: 20vw; } }
+      @media screen and (min-width: 1024px) {
+        /* line 55, HoboBrain/static/SCSS/homepage.scss */
+        main #bottom-section section .carousel .carousel-inner a {
+          width: 12vw; }
+          /* line 77, HoboBrain/static/SCSS/homepage.scss */
+          main #bottom-section section .carousel .carousel-inner a .carousel-item {
+            width: 12vw; } }
+    /* line 84, HoboBrain/static/SCSS/homepage.scss */
+    main #bottom-section section .carousel .carousel-inner .carousel-item {
+      width: 12vw; }
+  /* line 89, HoboBrain/static/SCSS/homepage.scss */
+  main #bottom-section section .carousel .carousel-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    width: 100%;
+    position: absolute;
+    z-index: 10;
+    pointer-events: none; }
+    /* line 99, HoboBrain/static/SCSS/homepage.scss */
+    main #bottom-section section .carousel .carousel-controls i {
+      font-size: 36px;
+      color: #92d051;
+      pointer-events: auto; }
+  /* line 106, HoboBrain/static/SCSS/homepage.scss */
+  main #bottom-section section .carousel .shadow {
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    position: absolute;
+    pointer-events: none;
+    box-shadow: 50px 0 30px -20px #444444 inset, -50px 0 30px -30px #444444 inset; }

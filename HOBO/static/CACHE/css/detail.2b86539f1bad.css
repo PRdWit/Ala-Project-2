@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap");
+@font-face {
+  font-family: NeutraText;
+  src: url(/static/fonts/NeutraText-BoldAlt.otf); }
+
+/* line 12, HoboBrain/static/SCSS/detail.scss */
+main {
+  padding: 20px; }
+  /* line 15, HoboBrain/static/SCSS/detail.scss */
+  main #top {
+    display: grid;
+    grid-template-columns: 1fr 1fr; }
+    /* line 19, HoboBrain/static/SCSS/detail.scss */
+    main #top #details {
+      padding: 10% 30px; }
+      /* line 22, HoboBrain/static/SCSS/detail.scss */
+      main #top #details h1 {
+        font-size: 48px; }
+      /* line 26, HoboBrain/static/SCSS/detail.scss */
+      main #top #details p {
+        font-size: 22px; }
+      /* line 30, HoboBrain/static/SCSS/detail.scss */
+      main #top #details #genres {
+        display: flex;
+        gap: 20px; }
+        /* line 34, HoboBrain/static/SCSS/detail.scss */
+        main #top #details #genres .genre {
+          background-color: #5b9bd5;
+          padding: 5px 10px;
+          border-radius: 10px;
+          width: fit-content;
+          font-size: 22px;
+          margin: 10px 0; }
+      /* line 44, HoboBrain/static/SCSS/detail.scss */
+      main #top #details #play {
+        background-color: #92d051;
+        color: #444444;
+        text-decoration: none;
+        padding: 7px 17px;
+        font-size: 26px; }
+    /* line 53, HoboBrain/static/SCSS/detail.scss */
+    main #top #idkright {
+      display: flex;
+      justify-content: center; }
+  /* line 59, HoboBrain/static/SCSS/detail.scss */
+  main #bottom h3 {
+    margin-bottom: 10px; }
+  /* line 63, HoboBrain/static/SCSS/detail.scss */
+  main #bottom #seizoenen {
+    background-color: #444444;
+    color: #efefef;
+    border: none;
+    font-family: "Montserrat", sans-serif;
+    font-size: 22px;
+    margin-bottom: 20px; }
+  /* line 72, HoboBrain/static/SCSS/detail.scss */
+  main #bottom #carousel {
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center; }
+    /* line 78, HoboBrain/static/SCSS/detail.scss */
+    main #bottom #carousel #afleveringen {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      padding: 0 10px; }
+      /* line 83, HoboBrain/static/SCSS/detail.scss */
+      main #bottom #carousel #afleveringen .episode {
+        width: 20vw;
+        margin-right: 10px;
+        text-align: center; }
+        /* line 88, HoboBrain/static/SCSS/detail.scss */
+        main #bottom #carousel #afleveringen .episode img {
+          width: 20vw; }
+        /* line 91, HoboBrain/static/SCSS/detail.scss */
+        main #bottom #carousel #afleveringen .episode p {
+          font-size: 22px;
+          font-weight: bold; }
+    /* line 97, HoboBrain/static/SCSS/detail.scss */
+    main #bottom #carousel .carousel-controls {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      width: 100%;
+      position: absolute;
+      z-index: 10;
+      pointer-events: none; }
+      /* line 107, HoboBrain/static/SCSS/detail.scss */
+      main #bottom #carousel .carousel-controls i {
+        font-size: 36px;
+        color: #92d051;
+        pointer-events: auto; }
+    /* line 113, HoboBrain/static/SCSS/detail.scss */
+    main #bottom #carousel .shadow {
+      width: 100%;
+      height: 100%;
+      z-index: 5;
+      position: absolute;
+      pointer-events: none;
+      box-shadow: 50px 0 30px -20px #444444 inset, -50px 0 30px -30px #444444 inset; }

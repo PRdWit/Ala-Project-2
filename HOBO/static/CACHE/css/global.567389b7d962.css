@@ -1,0 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap");
+@font-face {
+  font-family: NeutraText;
+  src: url(/static/fonts/NeutraText-BoldAlt.otf); }
+
+/* line 12, HoboBrain/static/SCSS/global.scss */
+a {
+  font-family: NeutraText; }

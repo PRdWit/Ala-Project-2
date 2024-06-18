@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap");
+@font-face {
+  font-family: NeutraText;
+  src: url(/static/fonts/NeutraText-BoldAlt.otf); }
+
+/* line 12, HoboBrain/static/SCSS/global.scss */
+body {
+  background-color: #444444;
+  color: #efefef;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; }
+  /* line 22, HoboBrain/static/SCSS/global.scss */
+  body header {
+    display: flex;
+    width: auto;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; }
+    /* line 29, HoboBrain/static/SCSS/global.scss */
+    body header nav {
+      display: flex;
+      align-items: center; }
+      @media screen and (max-width: 767px) {
+        /* line 29, HoboBrain/static/SCSS/global.scss */
+        body header nav {
+          gap: 10px; }
+          /* line 36, HoboBrain/static/SCSS/global.scss */
+          body header nav #content {
+            display: none; }
+          /* line 40, HoboBrain/static/SCSS/global.scss */
+          body header nav #logo {
+            width: 100px; }
+          /* line 44, HoboBrain/static/SCSS/global.scss */
+          body header nav a {
+            font-size: 16px; } }
+      @media screen and (min-width: 767px) {
+        /* line 29, HoboBrain/static/SCSS/global.scss */
+        body header nav {
+          gap: 20px; }
+          /* line 52, HoboBrain/static/SCSS/global.scss */
+          body header nav #logo {
+            width: 150px; }
+          /* line 56, HoboBrain/static/SCSS/global.scss */
+          body header nav a {
+            font-size: 20px; } }
+      /* line 61, HoboBrain/static/SCSS/global.scss */
+      body header nav a {
+        color: #efefef;
+        text-decoration: none;
+        font-family: "Montserrat", sans-serif; }
+        /* line 66, HoboBrain/static/SCSS/global.scss */
+        body header nav a:hover {
+          color: #5b9bd5; }
+    /* line 72, HoboBrain/static/SCSS/global.scss */
+    body header #navR {
+      display: flex;
+      align-items: center; }
+      @media screen and (max-width: 767px) {
+        /* line 72, HoboBrain/static/SCSS/global.scss */
+        body header #navR {
+          gap: 10px; }
+          /* line 79, HoboBrain/static/SCSS/global.scss */
+          body header #navR i {
+            font-size: 28px; }
+          /* line 84, HoboBrain/static/SCSS/global.scss */
+          body header #navR a p {
+            font-size: 16px; } }
+      @media screen and (min-width: 767px) {
+        /* line 72, HoboBrain/static/SCSS/global.scss */
+        body header #navR {
+          gap: 20px; }
+          /* line 93, HoboBrain/static/SCSS/global.scss */
+          body header #navR i {
+            font-size: 36px; }
+          /* line 98, HoboBrain/static/SCSS/global.scss */
+          body header #navR a p {
+            font-size: 20px; } }
+      /* line 104, HoboBrain/static/SCSS/global.scss */
+      body header #navR a {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        text-decoration: none;
+        color: #efefef; }
+        /* line 111, HoboBrain/static/SCSS/global.scss */
+        body header #navR a:hover {
+          color: #5b9bd5; }
+        /* line 115, HoboBrain/static/SCSS/global.scss */
+        body header #navR a p {
+          margin: 0; }
+  /* line 122, HoboBrain/static/SCSS/global.scss */
+  body main {
+    flex-grow: 1;
+    margin-bottom: 30px; }
+    /* line 126, HoboBrain/static/SCSS/global.scss */
+    body main h1, body main h2, body main h3 {
+      color: #92d051;
+      font-family: NeutraText; }
+    /* line 131, HoboBrain/static/SCSS/global.scss */
+    body main h3 {
+      font-size: 36px; }
+    /* line 135, HoboBrain/static/SCSS/global.scss */
+    body main h1 {
+      font-size: 40px; }
+  /* line 140, HoboBrain/static/SCSS/global.scss */
+  body footer {
+    background-color: #92d051;
+    width: auto;
+    color: #444444;
+    padding: 10px; }
+    @media screen and (max-width: 767px) {
+      /* line 147, HoboBrain/static/SCSS/global.scss */
+      body footer p {
+        font-size: 16px; } }
+    @media screen and (min-width: 767px) {
+      /* line 151, HoboBrain/static/SCSS/global.scss */
+      body footer p {
+        font-size: 20px; } }
+    /* line 154, HoboBrain/static/SCSS/global.scss */
+    body footer p {
+      margin: 0; }

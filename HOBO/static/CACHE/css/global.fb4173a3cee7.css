@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap");
+@font-face {
+  font-family: NeutraText;
+  src: url(/static/fonts/NeutraText-BoldAlt.otf); }
+
+/* line 12, HoboBrain/static/SCSS/global.scss */
+a {
+  font-family: NeutraText; }
+
+/* line 16, HoboBrain/static/SCSS/global.scss */
+.carousel-container {
+  width: 100%;
+  /* Full width */
+  overflow-x: auto;
+  /* Allow horizontal scrolling */
+  white-space: nowrap;
+  /* Keep children on one line */
+  scrollbar-width: none;
+  /* Hide scrollbar in Firefox */
+  -ms-overflow-style: none;
+  /* Hide scrollbar in IE and Edge */ }
+
+/* line 24, HoboBrain/static/SCSS/global.scss */
+.carousel-container::-webkit-scrollbar {
+  display: none;
+  /* Hide scrollbar in Chrome/Safari */ }
+
+/* line 28, HoboBrain/static/SCSS/global.scss */
+.carousel-item {
+  display: inline-block;
+  /* Keep items on the same line */
+  width: 200px;
+  /* Fixed width for the item */
+  height: 150px;
+  /* Fixed height for the item */
+  background-color: lightgray;
+  /* Background for visibility */
+  text-align: center;
+  /* Center content */
+  padding: 20px;
+  /* Padding within the item */
+  margin-right: 10px;
+  /* Spacing between items */ }
+
+/* line 38, HoboBrain/static/SCSS/global.scss */
+.carousel-controls {
+  display: flex;
+  /* Align controls horizontally */
+  justify-content: space-between;
+  /* Space controls evenly */
+  margin-top: 10px;
+  /* Space below carousel */ }
+
+/* line 44, HoboBrain/static/SCSS/global.scss */
+.carousel-controls button {
+  padding: 10px;
+  /* Padding for buttons */ }

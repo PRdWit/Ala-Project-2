@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap");
+@font-face {
+  font-family: NeutraText;
+  src: url(/static/fonts/NeutraText-BoldAlt.otf); }
+
+/* line 12, HoboBrain/static/SCSS/profile.scss */
+main {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  /* line 18, HoboBrain/static/SCSS/profile.scss */
+  main h1 {
+    margin-bottom: 0; }
+  /* line 22, HoboBrain/static/SCSS/profile.scss */
+  main h2 {
+    font-size: 30px; }
+  /* line 26, HoboBrain/static/SCSS/profile.scss */
+  main form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 22px; }
+    /* line 33, HoboBrain/static/SCSS/profile.scss */
+    main form #sections {
+      display: grid;
+      width: 100%; }
+      @media screen and (min-width: 767px) {
+        /* line 33, HoboBrain/static/SCSS/profile.scss */
+        main form #sections {
+          grid-template-columns: 1fr; } }
+      @media screen and (min-width: 767px) {
+        /* line 33, HoboBrain/static/SCSS/profile.scss */
+        main form #sections {
+          grid-template-columns: 1fr 1fr; } }
+      /* line 45, HoboBrain/static/SCSS/profile.scss */
+      main form #sections section {
+        display: flex;
+        flex-direction: column;
+        align-items: center; }
+        /* line 51, HoboBrain/static/SCSS/profile.scss */
+        main form #sections section input, main form #sections section select {
+          background-color: #efefef;
+          border: none;
+          font-family: "Montserrat", sans-serif;
+          font-size: 20px;
+          padding: 3px 5px;
+          width: 40%; }
+    /* line 62, HoboBrain/static/SCSS/profile.scss */
+    main form #buttons {
+      display: flex;
+      gap: 20px; }
+      /* line 66, HoboBrain/static/SCSS/profile.scss */
+      main form #buttons button {
+        background-color: #92d051;
+        color: #444444;
+        border: none;
+        font-family: "Montserrat", sans-serif;
+        font-size: 18px;
+        padding: 5px 10px;
+        font-weight: bold;
+        cursor: pointer; }
+      /* line 77, HoboBrain/static/SCSS/profile.scss */
+      main form #buttons a {
+        background-color: #92d051;
+        color: #444444;
+        text-decoration: none;
+        border: none;
+        font-family: "Montserrat", sans-serif;
+        font-size: 18px;
+        padding: 5px 10px;
+        font-weight: bold; }

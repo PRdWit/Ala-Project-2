@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap");
+@font-face {
+  font-family: NeutraText;
+  src: url(/static/fonts/NeutraText-BoldAlt.otf); }
+
+/* line 12, HoboBrain/static/SCSS/detail.scss */
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr; }
+  /* line 16, HoboBrain/static/SCSS/detail.scss */
+  main #details {
+    padding: 0px 30px; }
+    /* line 19, HoboBrain/static/SCSS/detail.scss */
+    main #details h1 {
+      font-size: 36px; }
+  /* line 24, HoboBrain/static/SCSS/detail.scss */
+  main #idkright {
+    display: flex;
+    justify-content: center; }

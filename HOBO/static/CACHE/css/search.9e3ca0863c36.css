@@ -1,0 +1,40 @@
+/* line 9, HoboBrain/static/SCSS/search.scss */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  /* line 14, HoboBrain/static/SCSS/search.scss */
+  main #searchbar {
+    display: flex;
+    width: 100%;
+    justify-content: center; }
+    /* line 19, HoboBrain/static/SCSS/search.scss */
+    main #searchbar input {
+      width: 94%;
+      border: none;
+      padding: 10px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 18px;
+      color: #444444;
+      background-color: #efefef; }
+  /* line 30, HoboBrain/static/SCSS/search.scss */
+  main ul {
+    width: 95%;
+    display: grid;
+    gap: 20px;
+    padding: 0; }
+    @media screen and (max-width: 767px) {
+      /* line 30, HoboBrain/static/SCSS/search.scss */
+      main ul {
+        grid-template-columns: repeat(3, 1fr); } }
+    @media screen and (min-width: 767px) and (max-width: 1014px) {
+      /* line 30, HoboBrain/static/SCSS/search.scss */
+      main ul {
+        grid-template-columns: repeat(4, 1fr); } }
+    @media screen and (min-width: 1024px) {
+      /* line 30, HoboBrain/static/SCSS/search.scss */
+      main ul {
+        grid-template-columns: repeat(6, 1fr); } }
+    /* line 48, HoboBrain/static/SCSS/search.scss */
+    main ul img {
+      width: 100%; }

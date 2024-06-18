@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap");
+@font-face {
+  font-family: NeutraText;
+  src: url(/static/fonts/NeutraText-BoldAlt.otf); }
+
+/* line 13, HoboBrain/static/SCSS/homepage.scss */
+main #top-section {
+  width: auto;
+  height: 40vh;
+  background-image: url("/static/Pics/dummy.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: end;
+  gap: 10px; }
+  /* line 24, HoboBrain/static/SCSS/homepage.scss */
+  main #top-section button {
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 0 10px 10px; }
+    /* line 31, HoboBrain/static/SCSS/homepage.scss */
+    main #top-section button#play {
+      background-color: #92d051;
+      color: #444444; }
+    /* line 36, HoboBrain/static/SCSS/homepage.scss */
+    main #top-section button#info {
+      background-color: #444444;
+      color: #92d051; }
+
+/* line 45, HoboBrain/static/SCSS/homepage.scss */
+main #bottom-section section .carousel {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center; }
+  /* line 51, HoboBrain/static/SCSS/homepage.scss */
+  main #bottom-section section .carousel .carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    padding: 0 10px; }
+    /* line 56, HoboBrain/static/SCSS/homepage.scss */
+    main #bottom-section section .carousel .carousel-inner a {
+      width: 12vw;
+      margin-right: 10px;
+      pointer-events: auto !important; }
+      /* line 61, HoboBrain/static/SCSS/homepage.scss */
+      main #bottom-section section .carousel .carousel-inner a .carousel-item {
+        width: 12vw; }
+    /* line 65, HoboBrain/static/SCSS/homepage.scss */
+    main #bottom-section section .carousel .carousel-inner .carousel-item {
+      width: 12vw; }
+  /* line 70, HoboBrain/static/SCSS/homepage.scss */
+  main #bottom-section section .carousel .carousel-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    width: 100%;
+    position: absolute;
+    z-index: 10;
+    pointer-events: none; }
+    /* line 80, HoboBrain/static/SCSS/homepage.scss */
+    main #bottom-section section .carousel .carousel-controls i {
+      font-size: 36px;
+      color: #92d051;
+      pointer-events: auto; }
+  /* line 87, HoboBrain/static/SCSS/homepage.scss */
+  main #bottom-section section .carousel .shadow {
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    position: absolute;
+    pointer-events: none;
+    box-shadow: 50px 0 30px -20px #444444 inset, -50px 0 30px -30px #444444 inset; }

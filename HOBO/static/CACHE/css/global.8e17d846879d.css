@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap");
+@font-face {
+  font-family: NeutraText;
+  src: url(/static/fonts/NeutraText-BoldAlt.otf); }
+
+/* line 12, HoboBrain/static/SCSS/global.scss */
+body {
+  background-color: #444444;
+  color: #efefef;
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; }
+  /* line 22, HoboBrain/static/SCSS/global.scss */
+  body header {
+    display: flex;
+    width: auto;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; }
+    /* line 29, HoboBrain/static/SCSS/global.scss */
+    body header nav {
+      display: flex;
+      align-items: center;
+      gap: 20px; }
+      /* line 34, HoboBrain/static/SCSS/global.scss */
+      body header nav #logo {
+        width: 150px; }
+      /* line 38, HoboBrain/static/SCSS/global.scss */
+      body header nav a {
+        color: #efefef;
+        text-decoration: none;
+        font-family: "Montserrat", sans-serif;
+        font-size: 20px; }
+        /* line 44, HoboBrain/static/SCSS/global.scss */
+        body header nav a:hover {
+          color: #5b9bd5; }
+    /* line 50, HoboBrain/static/SCSS/global.scss */
+    body header #navR {
+      display: flex;
+      align-items: center;
+      gap: 20px; }
+      /* line 55, HoboBrain/static/SCSS/global.scss */
+      body header #navR i {
+        font-size: 36px; }
+      /* line 59, HoboBrain/static/SCSS/global.scss */
+      body header #navR a {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        text-decoration: none;
+        color: #efefef; }
+        /* line 66, HoboBrain/static/SCSS/global.scss */
+        body header #navR a:hover {
+          color: #5b9bd5; }
+        /* line 70, HoboBrain/static/SCSS/global.scss */
+        body header #navR a p {
+          font-size: 20px;
+          margin: 0; }
+  /* line 78, HoboBrain/static/SCSS/global.scss */
+  body main {
+    flex-grow: 1;
+    margin-bottom: 10px; }
+    /* line 82, HoboBrain/static/SCSS/global.scss */
+    body main h1, body main h2, body main h3 {
+      color: #92d051;
+      font-family: NeutraText; }
+    /* line 87, HoboBrain/static/SCSS/global.scss */
+    body main h3 {
+      font-size: 36px; }
+  /* line 92, HoboBrain/static/SCSS/global.scss */
+  body footer {
+    background-color: #92d051;
+    width: auto;
+    color: #444444;
+    padding: 10px; }
+    /* line 98, HoboBrain/static/SCSS/global.scss */
+    body footer p {
+      margin: 0;
+      font-size: 20px; }
